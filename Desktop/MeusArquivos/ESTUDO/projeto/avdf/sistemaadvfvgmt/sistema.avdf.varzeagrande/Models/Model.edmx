@@ -1,0 +1,356 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db67266d6c26b84ce087efa7a2013bd241Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspectoSocial">
+          <Key>
+            <PropertyRef Name="aspecSocialUID" />
+          </Key>
+          <Property Name="aspecSocialUID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pessoaUID" Type="bigint" Nullable="false" />
+          <Property Name="carteriaPasseLivre" Type="bit" />
+          <Property Name="descCarteriaPasseLivre" Type="text" />
+          <Property Name="utilizaProjeto" Type="bit" />
+          <Property Name="descUtilizaProjeto" Type="text" />
+          <Property Name="bpcLoas" Type="bit" />
+          <Property Name="recebeAposentadoria" Type="bit" />
+          <Property Name="situacaoMoraria" Type="int" />
+          <Property Name="rendaFamiliar" Type="decimal" Precision="9" Scale="2" />
+          <Property Name="trabalhando" Type="bit" />
+          <Property Name="descTrabalhando" Type="text" />
+          <Property Name="grauEscolaridade" Type="int" />
+          <Property Name="descProfissao" Type="text" />
+          <Property Name="estadoCivil" Type="int" />
+          <Property Name="temFilhos" Type="bit" />
+          <Property Name="qtdeFilhos" Type="int" />
+          <Property Name="nomeConjuge" Type="varchar" MaxLength="250" />
+          <Property Name="sexoConjuge" Type="char" MaxLength="1" />
+          <Property Name="dataNascimentoConjuge" Type="date" />
+          <Property Name="naturalidadeEstadoConjuge" Type="int" />
+          <Property Name="naturalidadeCidadeConjuge" Type="int" />
+          <Property Name="rgConjuge" Type="int" />
+          <Property Name="cpfConjuge" Type="int" />
+          <Property Name="nte" Type="varchar" MaxLength="50" />
+          <Property Name="sessaoEleitoral" Type="varchar" MaxLength="10" />
+          <Property Name="zonaEleitoral" Type="varchar" MaxLength="50" />
+          <Property Name="nomeMaeConjuge" Type="varchar" MaxLength="250" />
+          <Property Name="nomePaiConjuge" Type="varchar" MaxLength="250" />
+          <Property Name="dataCadastro" Type="datetime" />
+        </EntityType>
+        <EntityType Name="PatologiaPessoa">
+          <Key>
+            <PropertyRef Name="patologiaUID" />
+          </Key>
+          <Property Name="patologiaUID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pessoaUID" Type="bigint" Nullable="false" />
+          <Property Name="patologiaCongenita" Type="bit" />
+          <Property Name="patologiaAdquirida" Type="bit" />
+          <Property Name="causaPatologia" Type="text" />
+          <Property Name="deficienciaApresentada" Type="text" />
+          <Property Name="tipoDeficiencia" Type="int" />
+          <Property Name="acessibilidadeMobilidade" Type="int" />
+          <Property Name="deficienciaColuna" Type="bit" />
+          <Property Name="descDeficienciaColuna" Type="text" />
+          <Property Name="usaAparelho" Type="bit" />
+          <Property Name="descTipoAparelho" Type="text" />
+          <Property Name="dataCadastro" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="pessoaUID" />
+          </Key>
+          <Property Name="pessoaUID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="250" />
+          <Property Name="sexo" Type="char" MaxLength="1" />
+          <Property Name="dataNascimento" Type="datetime" />
+          <Property Name="estado" Type="int" />
+          <Property Name="cidade" Type="int" />
+          <Property Name="rg" Type="int" />
+          <Property Name="cpf" Type="int" />
+          <Property Name="nomeMae" Type="varchar" MaxLength="250" />
+          <Property Name="nomePai" Type="varchar" MaxLength="250" />
+          <Property Name="cep" Type="char" MaxLength="8" />
+          <Property Name="rua" Type="varchar" MaxLength="500" />
+          <Property Name="casa" Type="varchar" MaxLength="10" />
+          <Property Name="bairro" Type="varchar" MaxLength="150" />
+          <Property Name="quadra" Type="varchar" MaxLength="10" />
+          <Property Name="complemento" Type="text" />
+          <Property Name="telefone1" Type="varchar" MaxLength="20" />
+          <Property Name="telefone2" Type="varchar" MaxLength="20" />
+          <Property Name="telefone3" Type="varchar" MaxLength="20" />
+          <Property Name="dataCadastro" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_AspectoSocial_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="AspectoSocial" Type="Self.AspectoSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="pessoaUID" />
+            </Principal>
+            <Dependent Role="AspectoSocial">
+              <PropertyRef Name="pessoaUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatologiaPessoa_Pessoa">
+          <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="1" />
+          <End Role="PatologiaPessoa" Type="Self.PatologiaPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="pessoaUID" />
+            </Principal>
+            <Dependent Role="PatologiaPessoa">
+              <PropertyRef Name="pessoaUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db67266d6c26b84ce087efa7a2013bd241ModelStoreContainer">
+          <EntitySet Name="AspectoSocial" EntityType="Self.AspectoSocial" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PatologiaPessoa" EntityType="Self.PatologiaPessoa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspectoSocial_Pessoa" Association="Self.FK_AspectoSocial_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="AspectoSocial" EntitySet="AspectoSocial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatologiaPessoa_Pessoa" Association="Self.FK_PatologiaPessoa_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="PatologiaPessoa" EntitySet="PatologiaPessoa" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db67266d6c26b84ce087efa7a2013bd241Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="db67266d6c26b84ce087efa7a2013bd241Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspectoSocial" EntityType="db67266d6c26b84ce087efa7a2013bd241Model.AspectoSocial" />
+          <EntitySet Name="PatologiaPessoa" EntityType="db67266d6c26b84ce087efa7a2013bd241Model.PatologiaPessoa" />
+          <EntitySet Name="Pessoa" EntityType="db67266d6c26b84ce087efa7a2013bd241Model.Pessoa" />
+          <AssociationSet Name="FK_AspectoSocial_Pessoa" Association="db67266d6c26b84ce087efa7a2013bd241Model.FK_AspectoSocial_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="AspectoSocial" EntitySet="AspectoSocial" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PatologiaPessoa_Pessoa" Association="db67266d6c26b84ce087efa7a2013bd241Model.FK_PatologiaPessoa_Pessoa">
+            <End Role="Pessoa" EntitySet="Pessoa" />
+            <End Role="PatologiaPessoa" EntitySet="PatologiaPessoa" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="AspectoSocial">
+          <Key>
+            <PropertyRef Name="aspecSocialUID" />
+          </Key>
+          <Property Name="aspecSocialUID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pessoaUID" Type="Int64" Nullable="false" />
+          <Property Name="carteriaPasseLivre" Type="Boolean" />
+          <Property Name="descCarteriaPasseLivre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="utilizaProjeto" Type="Boolean" />
+          <Property Name="descUtilizaProjeto" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="bpcLoas" Type="Boolean" />
+          <Property Name="recebeAposentadoria" Type="Boolean" />
+          <Property Name="situacaoMoraria" Type="Int32" />
+          <Property Name="rendaFamiliar" Type="Decimal" Precision="9" Scale="2" />
+          <Property Name="trabalhando" Type="Boolean" />
+          <Property Name="descTrabalhando" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="grauEscolaridade" Type="Int32" />
+          <Property Name="descProfissao" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="estadoCivil" Type="Int32" />
+          <Property Name="temFilhos" Type="Boolean" />
+          <Property Name="qtdeFilhos" Type="Int32" />
+          <Property Name="nomeConjuge" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="sexoConjuge" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="dataNascimentoConjuge" Type="DateTime" Precision="0" />
+          <Property Name="naturalidadeEstadoConjuge" Type="Int32" />
+          <Property Name="naturalidadeCidadeConjuge" Type="Int32" />
+          <Property Name="rgConjuge" Type="Int32" />
+          <Property Name="cpfConjuge" Type="Int32" />
+          <Property Name="nte" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sessaoEleitoral" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="zonaEleitoral" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nomeMaeConjuge" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="nomePaiConjuge" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="dataCadastro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Pessoa" Relationship="db67266d6c26b84ce087efa7a2013bd241Model.FK_AspectoSocial_Pessoa" FromRole="AspectoSocial" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="PatologiaPessoa">
+          <Key>
+            <PropertyRef Name="patologiaUID" />
+          </Key>
+          <Property Name="patologiaUID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pessoaUID" Type="Int64" Nullable="false" />
+          <Property Name="patologiaCongenita" Type="Boolean" />
+          <Property Name="patologiaAdquirida" Type="Boolean" />
+          <Property Name="causaPatologia" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="deficienciaApresentada" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="tipoDeficiencia" Type="Int32" />
+          <Property Name="acessibilidadeMobilidade" Type="Int32" />
+          <Property Name="deficienciaColuna" Type="Boolean" />
+          <Property Name="descDeficienciaColuna" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="usaAparelho" Type="Boolean" />
+          <Property Name="descTipoAparelho" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="dataCadastro" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Pessoa" Relationship="db67266d6c26b84ce087efa7a2013bd241Model.FK_PatologiaPessoa_Pessoa" FromRole="PatologiaPessoa" ToRole="Pessoa" />
+        </EntityType>
+        <EntityType Name="Pessoa">
+          <Key>
+            <PropertyRef Name="pessoaUID" />
+          </Key>
+          <Property Name="pessoaUID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="sexo" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="dataNascimento" Type="DateTime" Precision="3" />
+          <Property Name="estado" Type="Int32" />
+          <Property Name="cidade" Type="Int32" />
+          <Property Name="rg" Type="Int32" />
+          <Property Name="cpf" Type="Int32" />
+          <Property Name="nomeMae" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="nomePai" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="cep" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="rua" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="casa" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="bairro" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="quadra" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="complemento" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="telefone1" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telefone2" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="telefone3" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="dataCadastro" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="AspectoSocial" Relationship="db67266d6c26b84ce087efa7a2013bd241Model.FK_AspectoSocial_Pessoa" FromRole="Pessoa" ToRole="AspectoSocial" />
+          <NavigationProperty Name="PatologiaPessoa" Relationship="db67266d6c26b84ce087efa7a2013bd241Model.FK_PatologiaPessoa_Pessoa" FromRole="Pessoa" ToRole="PatologiaPessoa" />
+        </EntityType>
+        <Association Name="FK_AspectoSocial_Pessoa">
+          <End Type="db67266d6c26b84ce087efa7a2013bd241Model.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="db67266d6c26b84ce087efa7a2013bd241Model.AspectoSocial" Role="AspectoSocial" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="pessoaUID" />
+            </Principal>
+            <Dependent Role="AspectoSocial">
+              <PropertyRef Name="pessoaUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PatologiaPessoa_Pessoa">
+          <End Type="db67266d6c26b84ce087efa7a2013bd241Model.Pessoa" Role="Pessoa" Multiplicity="1" />
+          <End Type="db67266d6c26b84ce087efa7a2013bd241Model.PatologiaPessoa" Role="PatologiaPessoa" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pessoa">
+              <PropertyRef Name="pessoaUID" />
+            </Principal>
+            <Dependent Role="PatologiaPessoa">
+              <PropertyRef Name="pessoaUID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db67266d6c26b84ce087efa7a2013bd241ModelStoreContainer" CdmEntityContainer="db67266d6c26b84ce087efa7a2013bd241Entities">
+          <EntitySetMapping Name="AspectoSocial">
+            <EntityTypeMapping TypeName="db67266d6c26b84ce087efa7a2013bd241Model.AspectoSocial">
+              <MappingFragment StoreEntitySet="AspectoSocial">
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+                <ScalarProperty Name="nomePaiConjuge" ColumnName="nomePaiConjuge" />
+                <ScalarProperty Name="nomeMaeConjuge" ColumnName="nomeMaeConjuge" />
+                <ScalarProperty Name="zonaEleitoral" ColumnName="zonaEleitoral" />
+                <ScalarProperty Name="sessaoEleitoral" ColumnName="sessaoEleitoral" />
+                <ScalarProperty Name="nte" ColumnName="nte" />
+                <ScalarProperty Name="cpfConjuge" ColumnName="cpfConjuge" />
+                <ScalarProperty Name="rgConjuge" ColumnName="rgConjuge" />
+                <ScalarProperty Name="naturalidadeCidadeConjuge" ColumnName="naturalidadeCidadeConjuge" />
+                <ScalarProperty Name="naturalidadeEstadoConjuge" ColumnName="naturalidadeEstadoConjuge" />
+                <ScalarProperty Name="dataNascimentoConjuge" ColumnName="dataNascimentoConjuge" />
+                <ScalarProperty Name="sexoConjuge" ColumnName="sexoConjuge" />
+                <ScalarProperty Name="nomeConjuge" ColumnName="nomeConjuge" />
+                <ScalarProperty Name="qtdeFilhos" ColumnName="qtdeFilhos" />
+                <ScalarProperty Name="temFilhos" ColumnName="temFilhos" />
+                <ScalarProperty Name="estadoCivil" ColumnName="estadoCivil" />
+                <ScalarProperty Name="descProfissao" ColumnName="descProfissao" />
+                <ScalarProperty Name="grauEscolaridade" ColumnName="grauEscolaridade" />
+                <ScalarProperty Name="descTrabalhando" ColumnName="descTrabalhando" />
+                <ScalarProperty Name="trabalhando" ColumnName="trabalhando" />
+                <ScalarProperty Name="rendaFamiliar" ColumnName="rendaFamiliar" />
+                <ScalarProperty Name="situacaoMoraria" ColumnName="situacaoMoraria" />
+                <ScalarProperty Name="recebeAposentadoria" ColumnName="recebeAposentadoria" />
+                <ScalarProperty Name="bpcLoas" ColumnName="bpcLoas" />
+                <ScalarProperty Name="descUtilizaProjeto" ColumnName="descUtilizaProjeto" />
+                <ScalarProperty Name="utilizaProjeto" ColumnName="utilizaProjeto" />
+                <ScalarProperty Name="descCarteriaPasseLivre" ColumnName="descCarteriaPasseLivre" />
+                <ScalarProperty Name="carteriaPasseLivre" ColumnName="carteriaPasseLivre" />
+                <ScalarProperty Name="pessoaUID" ColumnName="pessoaUID" />
+                <ScalarProperty Name="aspecSocialUID" ColumnName="aspecSocialUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PatologiaPessoa">
+            <EntityTypeMapping TypeName="db67266d6c26b84ce087efa7a2013bd241Model.PatologiaPessoa">
+              <MappingFragment StoreEntitySet="PatologiaPessoa">
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+                <ScalarProperty Name="descTipoAparelho" ColumnName="descTipoAparelho" />
+                <ScalarProperty Name="usaAparelho" ColumnName="usaAparelho" />
+                <ScalarProperty Name="descDeficienciaColuna" ColumnName="descDeficienciaColuna" />
+                <ScalarProperty Name="deficienciaColuna" ColumnName="deficienciaColuna" />
+                <ScalarProperty Name="acessibilidadeMobilidade" ColumnName="acessibilidadeMobilidade" />
+                <ScalarProperty Name="tipoDeficiencia" ColumnName="tipoDeficiencia" />
+                <ScalarProperty Name="deficienciaApresentada" ColumnName="deficienciaApresentada" />
+                <ScalarProperty Name="causaPatologia" ColumnName="causaPatologia" />
+                <ScalarProperty Name="patologiaAdquirida" ColumnName="patologiaAdquirida" />
+                <ScalarProperty Name="patologiaCongenita" ColumnName="patologiaCongenita" />
+                <ScalarProperty Name="pessoaUID" ColumnName="pessoaUID" />
+                <ScalarProperty Name="patologiaUID" ColumnName="patologiaUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Pessoa">
+            <EntityTypeMapping TypeName="db67266d6c26b84ce087efa7a2013bd241Model.Pessoa">
+              <MappingFragment StoreEntitySet="Pessoa">
+                <ScalarProperty Name="dataCadastro" ColumnName="dataCadastro" />
+                <ScalarProperty Name="telefone3" ColumnName="telefone3" />
+                <ScalarProperty Name="telefone2" ColumnName="telefone2" />
+                <ScalarProperty Name="telefone1" ColumnName="telefone1" />
+                <ScalarProperty Name="complemento" ColumnName="complemento" />
+                <ScalarProperty Name="quadra" ColumnName="quadra" />
+                <ScalarProperty Name="bairro" ColumnName="bairro" />
+                <ScalarProperty Name="casa" ColumnName="casa" />
+                <ScalarProperty Name="rua" ColumnName="rua" />
+                <ScalarProperty Name="cep" ColumnName="cep" />
+                <ScalarProperty Name="nomePai" ColumnName="nomePai" />
+                <ScalarProperty Name="nomeMae" ColumnName="nomeMae" />
+                <ScalarProperty Name="cpf" ColumnName="cpf" />
+                <ScalarProperty Name="rg" ColumnName="rg" />
+                <ScalarProperty Name="cidade" ColumnName="cidade" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="dataNascimento" ColumnName="dataNascimento" />
+                <ScalarProperty Name="sexo" ColumnName="sexo" />
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="pessoaUID" ColumnName="pessoaUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

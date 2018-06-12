@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c97aeeb941484aecbfc7c6a2f87c1502" Name="Diagram1" ZoomLevel="72">
+        <EntityTypeShape EntityType="elluscosmeticos_idbcitystateModel.aspectosocial" Width="1.875" PointX="10.75" PointY="0.5" />
+        <EntityTypeShape EntityType="elluscosmeticos_idbcitystateModel.patologia" Width="2.125" PointX="2.875" PointY="0.5" />
+        <EntityTypeShape EntityType="elluscosmeticos_idbcitystateModel.pessoa" Width="1.5" PointX="8.125" PointY="0.5" />
+        <EntityTypeShape EntityType="elluscosmeticos_idbcitystateModel.tb_cidades" Width="1.5" PointX="5.125" PointY="2.75" />
+        <EntityTypeShape EntityType="elluscosmeticos_idbcitystateModel.tb_estados" Width="1.5" PointX="5" PointY="5.375" />
+        <AssociationConnector Association="elluscosmeticos_idbcitystateModel.pessoa1" />
+        <AssociationConnector Association="elluscosmeticos_idbcitystateModel.pessoaUID" />
+        <AssociationConnector Association="elluscosmeticos_idbcitystateModel.pessoa_cidade" />
+        <AssociationConnector Association="elluscosmeticos_idbcitystateModel.pessoa_estado" />
+        <AssociationConnector Association="elluscosmeticos_idbcitystateModel.estado_cidade" />
+        <EntityTypeShape EntityType="elluscosmeticos_idbcitystateModel.usuarioavdf" Width="1.5" PointX="0.625" PointY="1.375" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

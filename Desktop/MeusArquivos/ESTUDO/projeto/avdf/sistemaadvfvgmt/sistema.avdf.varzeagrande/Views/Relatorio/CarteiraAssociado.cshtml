@@ -1,0 +1,124 @@
+﻿@*@model List<sistema.avdf.varzeagrande.Models.ViewModel.ViewModelPessoaADVF>*@
+
+@{
+    ViewBag.Title = "Carteira Associado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /*Style Carteira Associado*/
+    label {
+        display: inline-block;
+        max-width: 100%;
+        /* margin-bottom: 5px; */
+        font-weight: bold;
+    }
+
+    .Carteira {
+        background-color: #6495ED;
+        height: 350px;
+        margin-top: 10px;
+        border-radius: 5px;
+        font-family:'Times New Roman', Times, serif;
+        font-size-adjust:initial;
+    }
+
+        .Carteira h4 {
+            padding-top: 10px;
+            text-align: center;
+            /*padding-left:210px;*/
+        }
+
+    .fotoAssociado {
+        border-style: solid;
+        border-color: white;
+        width: 120px;
+        height: 120px;
+        border-radius:0.3em;
+    }
+
+    p.fotoAssociado img {
+        background-color: darkgray;
+        width: 115px;
+        height: 115px;
+    }
+
+    .legislacao{
+        margin-top: 35px;
+        margin-bottom: 0;
+        font-weight: bold;
+    }
+
+    .expedicao {
+        margin-top: 5px;
+        margin-bottom:0;
+    }
+    
+    .legisParag2 {
+        margin: 0 auto;
+        text-align: justify;
+        font-weight: bold;
+    }
+
+    .legIdent {
+        padding-left: 15px;
+        font-weight: bold;
+    }
+
+    /*Fecha Carteira Associado*/
+</style>
+
+<div class="form-horizontal">
+    <div class="col-md-8 Carteira">
+        
+        <div class="col-md-7">
+            <h4><strong>CADASTRO ASSOCIADO</strong></h4>
+            <p class="fotoAssociado"><img src="@Url.Content("~/Content/img/img-model-carteira.png")" alt="foto associado" /></p>
+
+            <div class="form-horizontal">
+                <label for="Nome">Nome:</label>
+            </div>
+            <div class="form-horizontal">
+                <label for="RG">RG:</label>
+            </div>
+            <div class="form-horizontal">
+                <label for="CPF">CPF:</label>
+            </div>
+            <div class="form-horizontal">
+                <label for="ENDEREÇO">ENDEREÇO:</label>
+            </div>
+            <div class="form-horizontal">
+                <label for="BAIRRO">BAIRRO:</label>
+            </div>
+            <div class="form-horizontal">
+                <label for="CIDADE">CIDADE:</label>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <p class="legislacao">
+                Lei nº 5634 de 21 de janeiro de 2013
+            </p>
+            <p class="legislacao legisParag2 legisParag3">
+                Dispõe sobre o acesso gratuito em eventos
+                socioculturais às pessoas com de deficiência.
+            </p>
+            <p class="legisParag2 legIdent">     § 2º Fica assegurado o direito de acesso</p>
+            <p class="legisParag2">
+                gratuito ao acompanhante da pessoa com deficiência
+                visual e deficiência física nos eventos
+                citados no “caput” deste artigo.
+            </p>
+            
+            <p class="expedicao">
+                <label for="Expedicao">Expedida em:</label>                
+            </p>
+
+            <p class="validade">
+                <label for="Validade">Validade em:</label>
+            </p>
+
+        </div>
+    </div>
+</div>
+

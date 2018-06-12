@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1ad272fcd65f4846a7b4d724bcbbf4f6" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="idbavdfvgModel.aspectosocial" Width="1.5" PointX="7.25" PointY="4.25" />
+        <EntityTypeShape EntityType="idbavdfvgModel.patologia" Width="1.5" PointX="7.375" PointY="0.5" />
+        <EntityTypeShape EntityType="idbavdfvgModel.pessoa" Width="1.5" PointX="4.875" PointY="0.5" />
+        <EntityTypeShape EntityType="idbavdfvgModel.tb_cidades" Width="1.5" PointX="2.5" PointY="2" />
+        <EntityTypeShape EntityType="idbavdfvgModel.tb_estados" Width="1.5" PointX="0.5" PointY="0.5" />
+        <AssociationConnector Association="idbavdfvgModel.pessoa1" />
+        <AssociationConnector Association="idbavdfvgModel.pessoaUID" />
+        <AssociationConnector Association="idbavdfvgModel.pessoa_cidade" />
+        <AssociationConnector Association="idbavdfvgModel.pessoa_estado" />
+        <AssociationConnector Association="idbavdfvgModel.estado_cidade" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,87 @@
+﻿@model List<sistema.avdf.varzeagrande.Models.ViewModel.ViewModelPessoaADVF>
+
+@{
+    ViewBag.Title = "Relatorio";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Relatório Associados AVDF</h2>
+
+<br />
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Área Administrativa - Relatório de Associados Cadastrados
+    </div>
+
+    <div class="panel-body">
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Número Identificador
+                    </th>
+                    <th>
+                        Nome
+                    </th>
+                    <th>
+                        Estado
+                    </th>
+                    <th>
+                        Cidade
+                    </th>
+                    <th>
+                        RG
+                    </th>
+                    <th>
+                        CPF
+                    </th>
+                    @*<th>
+                        Data de Nascimento
+                    </th>
+                    <th>
+                        Nome da Mãe
+                    </th>*@
+                    <th>
+                        Ver Detalhes
+                    </th>
+                    <th>
+                        Gerar Carterinha
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.PessoaUID</td>
+                        <td>@item.Nome</td>
+                        <td>@item.SiglaEstado</td>
+                        <td>@item.NomeCidade</td>
+                        <td>@item.Rg</td>
+                        <td>@item.Cpf</td>
+                        @*<td></td>
+                        <td></td>*@
+                        <td>
+                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </a>
+                        </td>
+
+                        <td>
+                            <a href="#" class="btn btn-default" data-toggle="modal" data-target="#">
+                                <span class="glyphicon glyphicon-credit-card" aria-hidden="true"></span>
+                            </a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+    <div class="panel-footer panel-info">
+        @*@Html.ActionLink("Index", "ServicoGrafica", null, new { @class = "btn btn-success" })*@
+    </div>
+</div>
+
+

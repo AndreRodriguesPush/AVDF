@@ -1,0 +1,686 @@
+﻿@model sistema.avdf.varzeagrande.Models.ViewModel.ViewModelPessoaADVF
+
+@{
+    ViewBag.Title = "Cadastro ADVF";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastro AVDF</h2>
+
+@using (Html.BeginForm("SalvarDados", "Home", FormMethod.Post, new { @class = "form-horizontal" }))
+{
+
+    <div class="form-horizontal">
+        <h4>Cadastramento de Novos Associados</h4>
+        <hr />
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <strong>Dados Pessoais</strong>
+            </div>
+
+            <div class="panel-body">
+
+                @*<div class="form-group">
+                        <div class="col-md-2">
+                            <label for="Número do Cadastro">Nº Cadastro</label>
+                        </div>
+
+                        <div class="input-group col-md-2">
+                            <input type="text" class="form-control" id="p.numeroCadastro" name="cadastro.numeroCadastro" readonly />
+                            <span class="input-group-addon">@{@DateTime.Now.Year}</span>
+                        </div>
+                    </div>*@
+
+                <!--DADOS PESSOAIS-->
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        <label for="Nome">Nome</label>
+
+                        <input type="text" class="form-control" id="Nome" name="p.Nome" placeholder="Nome Completo" />
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="Sexo">Sexo</label>
+
+                        <select id="sexo" name="p.Sexo" class="form-control">
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="Data de Nascimento">Data de Nascimento</label>
+                        <input type="text" id="dataNascimento" name="p.DataNascimento" class="form-control" placeholder="Data Nascimento" />
+                        <p class="exibeIdade"></p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="Naturalidade">Naturalidade Estado</label>
+                        <select id="naturalidadeEstado" name="p.Estado" class="form-control">
+                            <option value="">Selecione o Estado</option>
+                            @foreach (var item in ViewBag.ListaEstados)
+                            {
+                                <option value="@item.id">@item.nome - @item.uf</option>
+                            }
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="Naturalidade Cidade">Naturalidade Cidade</label>
+                        <select id="naturalidadeCidade" name="p.Cidade" class="form-control">
+                            <option selected="selected" value="">Selecione a Cidade</option>
+                        </select>
+
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="Número do Registro Geral">Registro Geral</label>
+                        <input type="text" id="RG" name="p.Rg" class="form-control" placeholder="Nº Registro Geral" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Número de Cadastro de Pessoa Física">CPF</label>
+                        <input type="text" id="CPF" name="p.Cpf" class="form-control" placeholder="Nº CPF" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <br />
+                    <div class="col-md-5">
+                        <label for="Nome da Mãe">Nome da Mãe</label>
+                        <input type="text" class="form-control" id="nomeMae" name="p.NomeMae" placeholder="Nome da Mãe Completo" />
+                    </div>
+                    <div class="col-md-5">
+                        <label for="Nome do Pai">Nome do Pai</label>
+                        <input type="text" class="form-control" id="nomePai" name="p.NomePai" placeholder="Nome do Pai Completo" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="CEP da Residência">CEP</label>
+                        <input type="text" class="form-control" id="cepResidencia" name="p.CepResidencia" placeholder="CEP" />
+                    </div>
+                    <div class="col-md-8">
+                        <label for="Endereço da Residência">Rua/Av/Alameda/Travessa/Estrada</label>
+                        <input type="text" class="form-control" id="ruaResidencia" name="p.RuaResidencia" placeholder="Rua/Av/Alameda/Travessa/Estrada" />
+                    </div>
+
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="Número da Residência">Casa nº</label>
+                        <input type="text" class="form-control" id="numeroResidencia" name="p.CasaResidencia" placeholder="Casa nº" />
+                    </div>
+                    <div class="col-md-6">
+                        <label for="Bairro">Bairro</label>
+                        <input type="text" class="form-control" id="bairroResidencia" name="p.BairroResidencia" placeholder="Bairro" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Quadra">Quadra</label>
+                        <input type="text" class="form-control" id="quadraResidencia" name="p.QuadraResidencia" placeholder="Quadra" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-10">
+                        <label for="Localização da Residência">Localização da Residência</label>
+                        <input type="text" class="form-control" id="localizacaoResidencia" name="p.ComplementoResidencia" placeholder="(Condomínio, Torre, Apartamento)" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="Endereço da Residência">Telefone Celular 1</label>
+                        <input type="text" class="form-control telefoneCelMask" id="telefone1" name="p.Telefone1" placeholder="Telefone 1" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Número da Residência">Telefone Celular 2</label>
+                        <input type="text" class="form-control telefoneCelMask" id="telefone2" name="p.Telefone2" placeholder="Telefone 2" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Número da Residência">Telefone Fixo</label>
+                        <input type="text" class="form-control telefoneFixoMask" id="telefone3" name="p.Telefone3" placeholder="Telefone 3" />
+                    </div>
+                </div>
+                <br />
+            </div> <!--Panel body-->
+        </div><!--Panel Primary-->
+        <!--Fecha Dados Pessoais-->
+        <!--PATOLOGIA-->
+        <div class="panel panel-primary">
+            <div class="panel-heading"><strong>Patologia</strong></div>
+            <div class="panel-body">
+                <br />
+                <div class="form-group">
+                    <div class="col-md-5">
+                        <label for="Patologia Congênita">Patologia Congênita:</label>
+                        <input type="radio" id="patologiaCongenita" name="p.Patologia" value="1" />
+                        <label for="Patologia Adquirida">Patologia Adquirida:</label>
+                        <input type="radio" id="patologiaAdquirida" name="p.Patologia" value="2" />
+                    </div>
+                </div>
+
+                <!--PATOLOGIA-->
+
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label for="Causa da Patologia"><b>Causa da Patologia</b></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="causaPatologia" name="p.CausaPatologia" placeholder="Descreva a causa da Patologia" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <label for="Deficiência Apresentada"><b>Deficiência Apresentada</b></label>
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="deficienciaApresentada" name="p.DeficienciaApresentada" placeholder="Descreva a Deficiência Apresentada" />
+                    </div>
+                </div>
+
+                <!--Inclusão de Novos Campos-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="Tipo de Deficiência">Tipo de Deficiência</label>
+                        <select id="tipoDeficiencia" name="p.TipoDeficiencia" class="form-control">
+                            <option value="0">selecione o Tipo da Deficiência</option>
+                            <option value="1">Auditiva</option>
+                            <option value="2">Física</option>
+                            <option value="3">Mental/Neurógica</option>
+                            <option value="4">Múltiplas</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="Acessibilidade e Mobilidade">Acessibilidade/ Mobilidade</label>
+                        <select id="acessibilidadeMobilidade" name="p.AcessibilidadeMobilidade" class="form-control">
+                            <option value="0">Acesse um tipo de Mobilidade ou Acessibilidade</option>
+                            <option value="1">Idoso</option>
+                            <option value="2">Gestante/Lactante</option>
+                            <option value="3">Pessoa com criança de colo</option>
+                            <option value="4">Obeso</option>
+                            <option value="4">Pessoa com Deficiência</option>
+                        </select>
+                    </div>
+                </div>
+                <!--Fecha inclusão de novos campos-->
+                <!-- Membros Superiores-->
+                <!--<div class="row">
+                    <div class="col-md-2">
+                        <label for="Membros Superiores">Membros Superiores</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-control" id="membrosSuperiores" name="membrosSuperiores" value="0" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Braço Direito">Braço Direito</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-control" id="bracoDireito" name="bracoDireito" value="1" />
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="Braço Esquerdo">Braço Esquerdo</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-control" id="bracoEsquerdo" name="bracoEsquerdo" value="2" />
+                    </div>
+                </div>-->
+                <!-- Membros Inferiores-->
+                <!--<div class="row">
+                    <div class="col-md-2">
+                        <label for="Membros Inferiores">Membros Inferiores</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-control" id="membrosInferiores" name="membrosInferiores" value="3" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Perna Direito">Perna Direita</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-control" id="pernaDireita" name="pernaDireita" value="4" />
+                    </div>
+
+                    <div class="col-md-2">
+                        <label for="Perna Esquerda">Perna Esquerda</label>
+                    </div>
+                    <div class="col-md-1">
+                        <input type="checkbox" class="form-control" id="pernaEsquerda" name="pernaEsquerda" value="5" />
+                    </div>
+                </div>-->
+                <br />
+                <div class="form-group">
+                    <div class="col-md-6">
+                        <label for="Possui Deficiência na Coluna"><b>Possui Deficiência na Coluna ?</b></label>
+                        <label for="Deficiencia Coluna SIM">SIM:</label>
+                        <input type="radio" id="deficienciaColunaSim" name="p.DeficienciaColuna" value="sim" />
+                        <label for="Deficiencia Coluna NÃO">NÃO:</label>
+                        <input type="radio" id="deficienciaColunaNao" name="p.DeficienciaColuna" value="nao" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" id="textDeficienciaColuna" name="p.TextDeficienciaColuna" placeholder="Descreva a Deficiência na Coluna" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-7">
+                        <label for="Usa Algum Tipo de Aparelho"><b>Usa Algum Tipo de Aparelho, qual ?</b></label>
+                        <label for="Usa Algum Tipo de Aparelho SIM">SIM:</label>
+                        <input type="radio" id="usaTipoAparelhoSim" name="p.UsaTipoAparelho" value="sim" />
+                        <label for="Usa Algum Tipo de Aparelho NÃO">NÃO:</label>
+                        <input type="radio" id="usaTipoAparelhoNao" name="p.UsaTipoAparelho" value="nao" />
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="textUsaTipoAparelho" name="p.TextUsaTipoAparelho" placeholder="Descreva o aparelho que utiliza" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--Fecha SECTION Patologia Apresentada-->
+
+        <div class="panel panel-primary">
+            <div class="panel-heading"><strong>Aspectos Sociais</strong></div>
+            <div class="panel-body">
+                <br />
+                <div class="form-group">
+                    <div class="col-md-7">
+                        <label for="Possui Carteira de Passe Livre">Possui Carteira de Passe Livre, Qual ?</label>
+
+                        <label for="Possui Carteira de Passe livre SIM">SIM:</label>
+                        <input type="radio" id="possuiCarteiraPasseLivreSim" name="p.CarteiraPasseLivre" value="1" />
+
+                        <label for="Possui Carteira de Passe livre NÃO">NÃO:</label>
+                        <input type="radio" id="possuiCarteiraPasseLivreNao" name="p.CarteiraPasseLivre" value="2" />
+                    </div>
+
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="textCarteiraPasseLivre" name="p.DescCarteiraPasseLivre" placeholder="Descreva qual a carteira que possui" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-7">
+                        <label for="Utiliza o Projeto">Utiliza o Projeto?</label>
+
+                        <label for="Utiliza o  SIM">SIM:</label>
+                        <input type="radio" id="utilizaProjetoSim" name="p.UtilizaProjeto" value="sim" />
+
+                        <label for="Utiliza o  Não">NÃO:</label>
+                        <input type="radio" id="utilizaProjetoNao" name="p.UtilizaProjeto" value="nao" />
+                    </div>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control" id="utilizaProjeto" name="p.DescUtilizaProjeto" placeholder="Descreva qual o Projeto" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-7">
+                        <label for="Recebe B.P.C - LOAS">Recebe B.P.C - LOAS ?</label>
+
+                        <label for="Utiliza o  SIM">SIM:</label>
+                        <input type="radio" id="recebeBPCLOASSim" name="p.BpcLoas" value="1" />
+
+                        <label for="Utiliza o  Não">NÃO:</label>
+                        <input type="radio" id="recebeBPCLOASNao" name="p.BpcLoas" value="2" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-7">
+                        <label for="Recebe Aposentadoria">Recebe Aposentadoria ?</label>
+
+                        <label for="SIM">SIM:</label>
+                        <input type="radio" id="recebeAposentadoriaSim" name="p.RecebeAposentadoria" value="1" />
+
+                        <label for="NÃO">NÃO:</label>
+                        <input type="radio" id="recebeAposentadoriaNao" name="p.RecebeAposentadoria" value="2" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="Moradia Própria">Situação da Moradia</label>
+                        <select id="moradiaSituacao" name="p.SituacaoMoradia" class="form-control">
+                            <option value="0">selecione a situação da moradia</option>
+                            <option value="1">Própria</option>
+                            <option value="2">Alugada</option>
+                            <option value="3">Cedida</option>
+                            <option value="4">Outra</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="Qual a sua renda familiar?">Qual a sua renda familiar?</label>
+                        <input type="text" class="form-control" id="rendaFamiliar" name="p.RendaFamiliar" placeholder="Insira o valor da renda familiar (R$)" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <br />
+                    <div class="col-md-7">
+                        <label for="Esta Trabalhando">Está Trabalhando ?</label>
+
+                        <label for="SIM">SIM:</label>
+                        <input type="radio" id="trabalhandoSim" name="p.Trabalhando" value="1" />
+
+                        <label for="NÃO">NÃO:</label>
+                        <input type="radio" id="trabalhandoNao" name="p.Trabalhando" value="2" />
+                    </div>
+                    <div class="col-md-8">
+                        <input type="text" class="form-control" id="justificaTrabalho" name="p.DescTrabalhando" placeholder="" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-5">
+                        <label for="Grau de Escolaridade">Grau de Escolaridade</label>
+                        <select id="grauEscolaridade" name="p.GrauEscolaridade" class="form-control">
+                            <option value="0">Selecione o grau de escolaridade</option>
+                            <option value="1">Analfabeto</option>
+                            <option value="2">Ensino Fundamental Completo</option>
+                            <option value="3">Ensino Fundamental Incompleto</option>
+                            <option value="4">Ensino Médio Completo</option>
+                            <option value="5">Ensino Médio Incompleto</option>
+                            <option value="6">Ensino Superior Completo</option>
+                            <option value="7">Ensino Superior Incompleto</option>
+                            <option value="8">Pós-graduação Completa</option>
+                            <option value="9">Pós-graduação Incompleta</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="Profissão">Profissão</label>
+                        <input type="text" class="form-control" id="justificaTrabalho" name="p.DescProfissao" placeholder="Descreva a Profissão" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="Estado Civil">Estado Civil</label>
+                        <select id="estadoCivil" name="p.EstadoCivil" class="form-control">
+                            <option value="0">Selecione o estado civil</option>
+                            <option value="1">Solteiro(a)</option>
+                            <option value="2">Casado(a)</option>
+                            <option value="3">Convivente</option>
+                            <option value="4">Viúvo(a)</option>
+                            <option value="5">Divorciado(a)</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="Tem Filhos">Tem Filhos ?</label>
+                        <label for="SIM">SIM:</label>
+                        <input type="radio" id="temFilhosSim" name="p.TemFilhos" value="sim" />
+                        <label for="NÃO">NÃO:</label>
+                        <input type="radio" id="temFilhosNao" name="p.TemFilhos" value="nao" />
+                        <input type="text" class="form-control quantidade" id="quantidadeFilho" name="p.QtdeFilhos" placeholder="Quantidade de Filhos" />
+                    </div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="Nome Conjuge">Nome Conjuge</label>
+                        <input type="text" class="form-control" id="nomeConjuge" name="p.NomeConjuge" placeholder="Nome Conjuge" />
+                    </div>
+                </div>
+
+                <!--Sexo e Dt-Nascimento Conjuge-->
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="Sexo Conjuge">Sexo Conjuge</label>
+
+                        <select id="sexo" name="p.SexoConjuge" class="form-control">
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-3">
+                        <label for="Data de Nascimento">Data de Nascimento</label>
+                        <input type="text" id="dataNascimentoConjuge" name="p.DataNascimentoConjuge" class="form-control" placeholder="Data Nascimento Conjuge" />
+                        <p class="exibeIdade"></p>
+                    </div>
+                </div>
+                <!--Sexo e Dt-Nascimento Conjuge-->
+                <!--Conjuge-->
+                <div class="row">
+                    <div class="col-md-3">
+                        <label for="Naturalidade Cidade">Naturalidade Estado</label>
+                        <select id="naturalidadeEstadoConjuge" name="p.NaturalidadeEstadoConjuge" class="form-control">
+                            <option value="">Selecione o Estado</option>
+                            @foreach (var item in ViewBag.ListaEstados)
+                            {
+                                <option value="@item.id">@item.nome - @item.uf</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="Naturalidade Cidade">Naturalidade Cidade</label>
+                        <select id="naturalidadeCidadeConjuge" name="p.NaturalidadeCidadeConjuge" class="form-control">
+                            <option value="">Escolha a Cidade</option>
+                        </select>
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Número do Registro Geral">Registro Geral</label>
+                        <input type="text" id="RGConjuge" name="p.RgConjuge" class="form-control" placeholder="Nº Registro Geral" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Número de Cadastro de Pessoa Física">CPF</label>
+                        <input type="text" id="CPFConjuge" name="p.CpfConjuge" class="form-control" placeholder="Nº CPF" />
+                    </div>
+                </div><!--Conjuge-->
+                <br />
+                <div class="row">
+                    <div class="col-md-2">
+                        <label for="NTE">N.T.E</label>
+                        <input type="text" id="nte" name="p.Nte" class="form-control" placeholder="N.T.E" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Sessão Elitoral">Sessão Elitoral</label>
+                        <input type="text" id="secao" name="p.SecaoEleitoral" class="form-control" placeholder="Sessão Eleitoral" />
+                    </div>
+                    <div class="col-md-2">
+                        <label for="Zona Elitoral">Zona Elitoral</label>
+                        <input type="text" id="secao" name="p.ZonaEleitoral" class="form-control" placeholder="Zona Elitoral" />
+                    </div>
+                </div>
+                <br />
+                <!--Filiação Conjuge-->
+                <div class="row">
+                    <div class="col-md-10">
+                        <label for="Filiação Mãe (conjuge)">Filiação Mãe (conjuge)</label>
+                        <input type="text" id="maeConjuge" name="p.NomeMaeConjuge" class="form-control" placeholder="Filiação Mãe (conjuge)" />
+                    </div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md-10">
+                        <label for="Filiação Pai (conjuge)">Filiação Pai (conjuge)</label>
+                        <input type="text" id="paiConjuge" name="p.NomePaiConjuge" class="form-control" placeholder="Filiação Pai (conjuge)" />
+                    </div>
+                </div>
+
+                <br />
+
+                @*<div class="row">
+                        <div class="col-md-8">
+                            <label for="Endereço">Endereço</label>
+                            <input type="text" id="enderecoConjuge" name="p.enderecoConjuge" class="form-control" placeholder="Zona Elitoral" />
+                        </div>
+                    </div>*@
+
+                @*<br />*@
+
+                <!--Bairro/Município/Fone-->
+                @*<div class="row">
+                        <div class="col-md-3">
+                            <label for="Bairro">Bairro</label>
+                            <input type="text" id="bairroConjuge" name="bairroConjuge" class="form-control" placeholder="Bairro" />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="Município">Município</label>
+                            <input type="text" id="municipioConjuge" name="municipioConjuge" class="form-control" placeholder="Município" />
+                        </div>
+                        <div class="col-md-3">
+                            <label for="Telefone">Telefone</label>
+                            <input type="text" class="form-control telefoneFixoMask" id="telefoneConjuge" name="telefoneConjuge" placeholder="Telefone" />
+                        </div>
+                    </div>*@
+
+
+
+
+            </div>
+        </div>
+
+
+        <!--Fecha SECTION Aspectos Sociais-->
+        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CPF, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CPF, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CPF, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-5 col-md-10">
+                <input type="submit" value="SALVAR CADASTRO" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @*@Html.ActionLink("Back to List", "Index")*@
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $('#dataNascimento').mask('00/00/0000');
+            $('#dataNascimentoConjuge').mask('00/00/0000');
+            $('#CPF').mask('000.000.000-00');
+            $('#CPFConjuge').mask('000.000.000-00');
+            $('#cepResidencia').mask('00000-000');
+            $('.telefoneCelMask').mask('00 0 0000-0000');
+            $('.telefoneFixoMask').mask('00 0000-0000');
+            $('#rendaFamiliar').mask('#.##0,00', { reverse: true });
+
+            /*Função para exibir textbox para descrever - Deficiencia Coluna*/
+            $("#textDeficienciaColuna").hide();
+            $("#deficienciaColunaSim").click(function () {
+                $("#textDeficienciaColuna").show();
+            });
+            $("#deficienciaColunaNao").click(function () {
+                $("#textDeficienciaColuna").hide();
+            });
+            /*Função para exibir textbox para descrever - Usa Algum tipo de Aparelho*/
+            $("#textUsaTipoAparelho").hide();
+            $("#usaTipoAparelhoSim").click(function () {
+                $("#textUsaTipoAparelho").show();
+            });
+            $("#usaTipoAparelhoNao").click(function () {
+                $("#textUsaTipoAparelho").hide();
+            });
+            /*Função para exibir textbox para descrever - Carteira Passe Livre*/
+            $("#textCarteiraPasseLivre").hide();
+            $("#possuiCarteiraPasseLivreSim").click(function () {
+                $("#textCarteiraPasseLivre").show();
+            });
+            $("#possuiCarteiraPasseLivreNao").click(function () {
+                $("#textCarteiraPasseLivre").hide();
+            });
+            /*Função para exibir textbox para descrever se utiliza Projeto*/
+            $("#utilizaProjeto").hide();
+            $("#utilizaProjetoSim").click(function () {
+                $("#utilizaProjeto").show();
+            });
+            $("#utilizaProjetoNao").click(function () {
+                $("#utilizaProjeto").hide();
+            });
+            /*Função para justificar o Local ou Pq o Associado está ou não trabalhando*/
+            $("#justificaTrabalho").hide();
+            $("#trabalhandoSim").click(function () {
+                $("#justificaTrabalho").show();
+                $("#justificaTrabalho").attr("placeholder", "Onde Está Trabalhando ?").blur();
+            });
+            $("#trabalhandoNao").click(function () {
+                $("#justificaTrabalho").show();
+                $("#justificaTrabalho").attr("placeholder", "Porque não está Trabalhando ?").blur();
+            });
+            /*Função apresenta campo para inserir a quantidade de filhos (SIM | NÃO)*/
+            $("#quantidadeFilho").hide();
+            $("#temFilhosSim").click(function () {
+                $("#quantidadeFilho").show();
+            });
+            $("#temFilhosNao").click(function () {
+                $("#quantidadeFilho").hide();
+            });
+            /* ---Campo Quantidade Filhos Aceita Apenas Números--- */
+            $(document).on('keypress', 'input.quantidade', function (e) {
+                var square = document.getElementById('quantidadeFilho');
+                var key = (window.event) ? event.keyCode : e.which;
+                if (key > 47 && key < 58) {
+                    return true;
+                } else {
+                    return (key == 8 || key == 0) ? true : false;
+                }
+            });
+
+            //Função Ajax para retornar a Cidade
+            $("#naturalidadeEstado").change(function () {
+                var vUrl = "/Home/ListaCidade";
+                var uf = $("#naturalidadeEstado").val();
+                if (uf > 0) {
+                    $.post(vUrl, { uf: uf }, function (data) {
+                        if (data.length > 0) {
+                            $("#naturalidadeCidade").empty();
+                            for (i = 0; i < data.length; i++) {
+                                $("#naturalidadeCidade").append('<option value="' + data[i].id + '">' + data[i].nome + '</option>');
+                            }
+                        }
+                    });
+                }
+            });
+            //Função Ajax para retornar a Cidade - Conjuge
+            $("#naturalidadeEstadoConjuge").change(function () {
+                var vUrl = "/Home/ListaCidade";
+                var uf = $("#naturalidadeEstadoConjuge").val();
+                if (uf > 0) {
+                    $.post(vUrl, { uf: uf }, function (data) {
+                        if (data.length > 0) {
+                            $("#naturalidadeCidadeConjuge").empty();
+                            for (i = 0; i < data.length; i++) {
+                                $("#naturalidadeCidadeConjuge").append('<option value="' + data[i].id + '">' + data[i].nome + '</option>');
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

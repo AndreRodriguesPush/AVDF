@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dbd2bc5f7b2c4340389de9a7a7009d623cModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tb_cidades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="uint" Nullable="false" />
+          <Property Name="uf" Type="varchar" MaxLength="4" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uf" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="nome" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="dbd2bc5f7b2c4340389de9a7a7009d623cModelStoreContainer">
+          <EntitySet Name="tb_cidades" EntityType="Self.tb_cidades" Schema="dbd2bc5f7b2c4340389de9a7a7009d623c" store:Type="Tables" />
+          <EntitySet Name="tb_estados" EntityType="Self.tb_estados" Schema="dbd2bc5f7b2c4340389de9a7a7009d623c" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbd2bc5f7b2c4340389de9a7a7009d623cModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="dbd2bc5f7b2c4340389de9a7a7009d623cEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_cidades" EntityType="dbd2bc5f7b2c4340389de9a7a7009d623cModel.tb_cidades" />
+          <EntitySet Name="tb_estados" EntityType="dbd2bc5f7b2c4340389de9a7a7009d623cModel.tb_estados" />
+        </EntityContainer>
+        <EntityType Name="tb_cidades">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado" Type="Int64" Nullable="false" />
+          <Property Name="uf" Type="String" Nullable="false" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="tb_estados">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uf" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="nome" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbd2bc5f7b2c4340389de9a7a7009d623cModelStoreContainer" CdmEntityContainer="dbd2bc5f7b2c4340389de9a7a7009d623cEntities">
+          <EntitySetMapping Name="tb_cidades">
+            <EntityTypeMapping TypeName="dbd2bc5f7b2c4340389de9a7a7009d623cModel.tb_cidades">
+              <MappingFragment StoreEntitySet="tb_cidades">
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="uf" ColumnName="uf" />
+                <ScalarProperty Name="estado" ColumnName="estado" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_estados">
+            <EntityTypeMapping TypeName="dbd2bc5f7b2c4340389de9a7a7009d623cModel.tb_estados">
+              <MappingFragment StoreEntitySet="tb_estados">
+                <ScalarProperty Name="nome" ColumnName="nome" />
+                <ScalarProperty Name="uf" ColumnName="uf" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

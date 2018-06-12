@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style type="text/css">
+    .alert-box {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+
+    .success {
+        color: #3c763d;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+        display: none;
+    }
+</style>
+
+<div class="jumbotron">
+        <h3>Associação Varzeagrandense de Deficientes Físicos - MT</h3>
+        <p class="lead">@*Usuario:@ViewBag.NomeUsuario();*@</p>
+        <p><a href="~/Home/CadastroADVF/" class="btn btn-primary btn-lg">Cadastrar Novos Associados &raquo;</a></p>
+</div>
+
+<div class="alert-box success">
+    <strong>Login Efetuado Com Sucesso</strong> .
+</div>
+
+
+<!-- <div class="row">
+    <div class="col-md-4">
+        <h2>Relatório de Cadastros</h2>
+        <p>
+            Relatório de Associados.
+        </p>
+        <p><a class="btn btn-default" href="@Url.Action("Index","Relatorio")">Acesse &raquo;</a></p>
+    </div>
+   <div class="col-md-4">
+        <h2>Get more libraries</h2>
+        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Web Hosting</h2>
+        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    </div>
+</div>-->
+@section scripts{
+    <script type="text/javascript">
+        $("#btnSair").click(function () {
+            $.post("@Url.Action("Sair","Home")", function (data) {});
+        });
+    </script>
+}
