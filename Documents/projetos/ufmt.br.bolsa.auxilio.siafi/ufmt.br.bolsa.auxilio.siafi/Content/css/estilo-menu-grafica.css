@@ -1,0 +1,68 @@
+﻿/*
+Example: http://code.jonathanbriehl.com/demos/bootstrap-vertical-menu/#
+
+*/
+@charset "utf-8";
+
+fieldset {
+    min-width: 800px;
+    padding: 0;
+    margin: 5px;
+    border: 0;
+}
+
+/* make sidebar nav vertical */ 
+	@media (min-width: 768px) {
+	  .sidebar-nav .navbar .navbar-collapse {
+		padding: 0;
+		max-height: none;
+	  }
+	  .sidebar-nav .navbar ul {
+		float: none;
+	  }
+	  .sidebar-nav .navbar ul:not {
+		display: block;
+
+	  }
+	  .sidebar-nav .navbar li {
+		float: none;
+		display: block;
+        line-height: 40px;
+        border-bottom: 1px solid #e8e7e7;
+	  }
+	  .sidebar-nav .navbar li a:hover {
+		padding-top: 12px;
+		padding-bottom: 12px;  
+        border-bottom: 1px solid #e8e7e7; 
+        text-decoration: underline;     
+	  }    
+
+      .sidebar-nav .navbar li a:active,
+      .sidebar-nav .navbar li a:focus{
+          text-decoration: none;
+      }
+
+        #menu-cabecalho {
+            font-weight: bold;
+            border-top: 4px solid #3268BA;
+        }   
+	}
+	@media (min-width: 768px) {
+	  /* uncomment if you would like the menu to be fixed */
+	  /* .navbar {
+		  position: fixed;
+		  width: 170px;
+		  z-index: 2;
+	  } */
+	}
+	@media (min-width: 992px) {
+	  .navbar {
+		  width: 212px;
+	  }
+	}
+	@media (min-width: 1200px) {
+	  .navbar {
+		  width: 180px;/*262*/
+	  }
+	}
+	.sidebar-nav .navbar-header{ float: none; }

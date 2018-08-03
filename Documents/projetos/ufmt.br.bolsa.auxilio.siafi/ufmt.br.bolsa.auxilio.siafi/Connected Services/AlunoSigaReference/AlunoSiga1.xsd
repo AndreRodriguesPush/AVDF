@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ufmt.services.entities" />
+  <xs:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ufmt.services" />
+  <xs:element name="GetInfoAluno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoAlunoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetInfoAlunoResult" nillable="true" type="q1:Aluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoAlunoInativo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoAlunoInativoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetInfoAlunoInativoResult" nillable="true" type="q2:Aluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunos">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosResult" nillable="true" type="q3:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorCpf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cpf" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorCpfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosPorCpfResult" nillable="true" type="q4:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosInativosPorCpf">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="cpf" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosInativosPorCpfResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosInativosPorCpfResult" nillable="true" type="q5:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorCampus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campusUID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorCampusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosPorCampusResult" nillable="true" type="q6:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosGraduacao">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosGraduacaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosGraduacaoResult" nillable="true" type="q7:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosGraduacaoPorCampus">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campusUID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosGraduacaoPorCampusResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosGraduacaoPorCampusResult" nillable="true" type="q8:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPaginado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="registroInicial" type="xs:int" />
+        <xs:element minOccurs="0" name="quantidadeRegistros" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPaginadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosPaginadoResult" nillable="true" type="q9:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorCampusPaginado">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="campusUID" type="xs:int" />
+        <xs:element minOccurs="0" name="registroInicial" type="xs:int" />
+        <xs:element minOccurs="0" name="quantidadeRegistros" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorCampusPaginadoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosPorCampusPaginadoResult" nillable="true" type="q10:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoeficiente">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoeficienteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCoeficienteResult" type="xs:double" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorNome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="registroInicial" type="xs:int" />
+        <xs:element minOccurs="0" name="quantidadeDeRegistros" type="xs:int" />
+        <xs:element minOccurs="0" name="campusUID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosPorNomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosPorNomeResult" nillable="true" type="q11:ArrayOfAluno" />
+        <xs:element minOccurs="0" name="quantidadeTotal" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosInativosPorNome">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAlunosInativosPorNomeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetAlunosInativosPorNomeResult" nillable="true" type="q12:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaGenerica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/ufmt.services" minOccurs="0" name="nomeParametro" type="q13:ParametrosEstudante" />
+        <xs:element minOccurs="0" name="valorParametro" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="registroInicial" type="xs:int" />
+        <xs:element minOccurs="0" name="quantidadeDeRegistros" type="xs:int" />
+        <xs:element minOccurs="0" name="campusUID" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultaGenericaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="ConsultaGenericaResult" nillable="true" type="q14:ArrayOfAluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GravaFaltasEstudanteGraduacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="disciplina" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodo" type="xs:int" />
+        <xs:element minOccurs="0" name="turma" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="faltas" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GravaFaltasEstudanteGraduacaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GravaFaltasEstudanteGraduacaoResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GravaFaltasEstudantesGraduacao">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IP" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="disciplina" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="periodo" type="xs:int" />
+        <xs:element minOccurs="0" name="turma" nillable="true" type="xs:string" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/ufmt.services" minOccurs="0" name="faltasPorEstudante" nillable="true" type="q15:ArrayOfFaltasPorEstudante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GravaFaltasEstudantesGraduacaoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/ufmt.services" minOccurs="0" name="GravaFaltasEstudantesGraduacaoResult" nillable="true" type="q16:ArrayOfResultadoFaltasEstudante" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesligaAlunoSiga">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DesligaAlunoSigaResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IncluiDisciplinaHistorico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="disciplina" type="xs:int" />
+        <xs:element minOccurs="0" name="periodo" type="xs:int" />
+        <xs:element minOccurs="0" name="turma" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="protocolo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="condDisci" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="IncluiDisciplinaHistoricoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="IncluiDisciplinaHistoricoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoverDisciplinaHistorico">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="usuario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ip" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="disciplina" type="xs:int" />
+        <xs:element minOccurs="0" name="periodo" type="xs:int" />
+        <xs:element minOccurs="0" name="turma" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoverDisciplinaHistoricoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoverDisciplinaHistoricoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaPendenciasBiblioteca">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="parametro" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaPendenciasBibliotecaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificaPendenciasBibliotecaResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterarSenhaAluno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="senha_antiga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="nova_senha" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterarSenhaAlunoResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterarDadosCadastrais">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TelefonePrimario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="telefoneSecundario" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Mail" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="linkLattes" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="image" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="content_type" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AlterarDadosCadastraisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AlterarDadosCadastraisResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReenvioSenhaAluno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ReenvioSenhaAlunoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ReenvioSenhaAlunoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarCargaHorariaCursada">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificarCargaHorariaCursadaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificarCargaHorariaCursadaResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaBolsaAluno">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaBolsaAlunoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificaBolsaAlunoResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaReprovacoesSemestresAnteriores">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaReprovacoesSemestresAnterioresResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificaReprovacoesSemestresAnterioresResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoeficientePorMediaAritmetica">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCoeficientePorMediaAritmeticaResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetCoeficientePorMediaAritmeticaResult" type="xs:float" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaAprovacoesSemestresIniciais">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="VerificaAprovacoesSemestresIniciaisResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="VerificaAprovacoesSemestresIniciaisResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoAlunoAndifes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetInfoAlunoAndifesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetInfoAlunoAndifesResult" nillable="true" type="q17:Aluno" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

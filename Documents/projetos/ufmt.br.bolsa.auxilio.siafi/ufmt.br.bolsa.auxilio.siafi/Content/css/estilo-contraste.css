@@ -1,0 +1,17 @@
+﻿@charset "utf-8";
+
+#sect-align, #sect, #ContentListSistemas, #Academicos, .footerAnimado, #footer, #admins, #comunicacao, #gestao {
+    background:#000!important;
+    color:#fff!important;
+}
+#sect-align a, #sect a, #ContentListSistemas, #Academicos, #admins, #comunicacao, #gestao  {
+    color:#fff!important;
+}
+
+.footerAnimado img {
+    visibility:hidden;
+}
+
+.col-sm-2 a{
+    color:#000!important;
+}

@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @class = "form-horizontal", @id = "form-adicionar" }))
+{
+<div class="panel panel-primary">
+
+
+    <div class="panel-heading">
+        Gerenciamento de Download de Arquivos CR
+    </div>
+
+    <div class="panel-body">
+
+        <!--Escolha Pró-reitoria-->
+        <div class="form-horizontal">
+            <div class="col-md-4">
+                <label for="titulo">Pró-reitoria</label>
+                
+                <select name="campusUID" id="campusUID" class="form-control" required>
+                    <option selecte="selected" value="" hidden>Pró-reitoria</option>
+                     @foreach (var item in Model )
+                    {
+                        <option value="@item.CampusUID">@{@item.NomeCampus}</option>
+                     }
+                </select>
+            </div>
+
+            <div class="col-md-4">
+                <label for="titulo">Escolha o Tipo de Assistência</label>
+                <select name="servico.tipoServicoUID" id="servico.tipoServicoUID" class="form-control" required>
+                    <option selecte="selected" value="" hidden>Tipo de Assistência</option>
+                     @*@foreach (var item in Model.TiposServicosValor.Where(x => x.tipoServicoUID != 1).ToList())
+                    {*@
+                    <option value="1">Bolsa Permanência</option>
+                     @*}*@
+                </select>
+            </div>
+
+             @*<div class="col-md-4">
+                    <label for="titulo"></label>
+                    <input type="submit" class="btn btn-primary btn-lg" value="Filtrar" />
+                </div>*@
+        </div>
+
+
+        <div class="group">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Pró-reitoria
+                        </th>
+                        <th>
+                            Bolsa
+                        </th>
+                        <th>
+                            Download
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>####</td>
+                        <td>####</td>
+                        <td>@*<a class="btn-default" href="@Url.Action("Index", "Home", new {@tipoArquivo="2",@edital="1",@mes="7"} Home", "Home" , new {@tipoArquivo="2" ,@edital="1" ,@mes="7" })">Baixar</a>*@</td>
+                       
+                        @* Home", "Home" , new {@tipoArquivo="2" ,@edital="1" ,@mes="7" } Home", "Home" , new {@tipoArquivo="2" ,@edital="1" ,@mes="7" })"></a></td>
+                         <td><a class="btn-default" href="@Url.Action("Home", "Home")">Baixar</a></td>*@
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+}

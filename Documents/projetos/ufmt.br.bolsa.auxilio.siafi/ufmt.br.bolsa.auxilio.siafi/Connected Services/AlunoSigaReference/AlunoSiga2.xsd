@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/ufmt.services" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ufmt.services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:simpleType name="TipoEstudante">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Graduacao">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">1</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="PosGraduacao">
+        <xs:annotation>
+          <xs:appinfo>
+            <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">2</EnumerationValue>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="TipoEstudante" nillable="true" type="tns:TipoEstudante" />
+  <xs:simpleType name="ParametrosEstudante">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="rga" />
+      <xs:enumeration value="cpf" />
+      <xs:enumeration value="rg" />
+      <xs:enumeration value="nome" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="ParametrosEstudante" nillable="true" type="tns:ParametrosEstudante" />
+  <xs:complexType name="ArrayOfFaltasPorEstudante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="FaltasPorEstudante" nillable="true" type="tns:FaltasPorEstudante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfFaltasPorEstudante" nillable="true" type="tns:ArrayOfFaltasPorEstudante" />
+  <xs:complexType name="FaltasPorEstudante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="faltas" type="xs:int" />
+      <xs:element minOccurs="0" name="nota" type="xs:double" />
+      <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="FaltasPorEstudante" nillable="true" type="tns:FaltasPorEstudante" />
+  <xs:complexType name="ArrayOfResultadoFaltasEstudante">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ResultadoFaltasEstudante" nillable="true" type="tns:ResultadoFaltasEstudante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfResultadoFaltasEstudante" nillable="true" type="tns:ArrayOfResultadoFaltasEstudante" />
+  <xs:complexType name="ResultadoFaltasEstudante">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="resultado" type="xs:int" />
+      <xs:element minOccurs="0" name="rga" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ResultadoFaltasEstudante" nillable="true" type="tns:ResultadoFaltasEstudante" />
+</xs:schema>

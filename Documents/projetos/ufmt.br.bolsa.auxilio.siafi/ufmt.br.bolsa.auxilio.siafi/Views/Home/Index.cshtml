@@ -1,0 +1,143 @@
+﻿@model GerenciamentoBolsasAuxiliosSiafi.Models.ViewModel.ViewModelRelatorioDownloadArquivo
+
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("Home", "Home", FormMethod.Post, new { @class = "form-horizontal", @id = "form-adicionar" }))
+{
+
+    <style>
+        .glyphicon {
+            font-size: 1.6em;
+        }
+    </style>
+
+    <div class="panel panel-primary">
+
+        <div class="panel-heading">
+            Gerenciamento de Download de Arquivos CR e LC
+        </div>
+
+        <div class="panel-body">
+
+            <div class="group">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Campus</th>
+                            <th>Pró-reitoria</th>
+                            <th>Tipo Arquivo</th>
+                            <th>Edital</th>
+                            <th>Mês</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td width="155px">
+                                <select name="campusUID" id="campusUID" class="form-control" required>
+                                    <option selecte="selected" value="" hidden>Campus</option>
+                                    @foreach (var item in Model.ListaCampus)
+                                    {
+                                        <option value="@item.CampusUID">@{@item.NomeCampus}</option>
+                                    }
+                                </select>
+                            </td>
+                            <td width="200px">
+                                <select name="proReitoriaUID" id="proReitoriaUID" class="form-control" required>
+                                    <option selecte="selected" value="" hidden>Pró-reitoria</option>
+                                    @foreach (var item in Model.ListaProReitoria)
+                                    {
+                                        <option value="@item.UnidadeProReitoriaUID">@{@item.SiglaProReitoria}</option>
+                                    }
+                                </select>
+                            </td>
+
+                            <td width="200px">
+                                <select name="TipoArquivo" id="TipoArquivo" class="form-control" required>
+                                    <option selecte="selected" value="" hidden>Tipo Arquivo</option>
+                                    <option selecte="selected" value="CR">Cadastro Credor</option>
+                                    <option selecte="selected" value="LC">Lista de Credor</option>
+                                </select>
+                            </td>
+
+                            <td width="155px">
+                                <select name="edital" id="edital" class="form-control" required>
+                                    <option selecte="selected" value="" hidden>Edital</option>
+                                    <option selecte="selected" value="001/2018">001/2018</option>
+                                </select>
+                            </td>
+
+                            <td width="150px">
+                                <select name="mes" id="mes" class="form-control" required>
+                                    <option selecte="selected" value="" hidden>Mês</option>
+                                    <option selecte="selected" value="01">Janeiro</option>
+                                    <option selecte="selected" value="02">Fevereiro</option>
+                                    <option selecte="selected" value="03">Março</option>
+                                    <option selecte="selected" value="04">Abril</option>
+                                    <option selecte="selected" value="05">Maio</option>
+                                    <option selecte="selected" value="06">Junho</option>
+                                    <option selecte="selected" value="07">Julho</option>
+                                    <option selecte="selected" value="08">Agosto</option>
+                                    <option selecte="selected" value="09">Setembro</option>
+                                    <option selecte="selected" value="10">Outubro</option>
+                                    <option selecte="selected" value="11">Novembro</option>
+                                    <option selecte="selected" value="12">Dezembro</option>
+                                </select>
+                            </td>
+
+                            <td>
+                                <input type="submit" id="submit" name="submit" class="btn btn-success" value="Filtrar" />
+                            </td>
+
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+            <div class="group">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>
+                                Pró-reitoria
+                            </th>
+                            <th>
+                                Bolsa
+                            </th>
+                            <th style="text-align:center;">
+                                Download
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>####</td>
+                            <td>####</td>
+
+                            <td align="center">
+
+                                <a href="@Url.Action("Home", "Home", new {@tipoArquivo="LC",@edital="1",@mes="7"})">
+                                    <span class="glyphicon glyphicon-download-alt"></span>
+                                </a>
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+}
+
+@section scripts{
+
+
+
+}

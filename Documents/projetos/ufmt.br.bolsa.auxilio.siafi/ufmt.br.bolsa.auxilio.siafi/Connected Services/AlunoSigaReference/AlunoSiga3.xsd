@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ufmt.services.entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ufmt.services.entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ufmt.services" />
+  <xs:complexType name="Aluno">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Agencia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CEP" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampusUID" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Chave" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="Cidade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoBanco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CodigoCurso" type="xs:int" />
+      <xs:element minOccurs="0" name="Cpf" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Curso" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CursoUID" type="xs:int" />
+      <xs:element minOccurs="0" name="DataNascimento" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Endereco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MaeAluno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Matricula" type="xs:decimal" />
+      <xs:element minOccurs="0" name="NomeAluno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomeBanco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomeCampus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumeroConta" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PaiAluno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Regime" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rg" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rga" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Semestre" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sexo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Situacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Telefone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TelefoneSecundario" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoGraduacao" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Turno" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UF" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ano" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ufmt.services" minOccurs="0" name="tipoEstudante" type="q1:TipoEstudante" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Aluno" nillable="true" type="tns:Aluno" />
+  <xs:complexType name="ArrayOfAluno">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Aluno" nillable="true" type="tns:Aluno" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAluno" nillable="true" type="tns:ArrayOfAluno" />
+</xs:schema>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ufmt.services.entities" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ufmt.services.entities" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ufmt.services" />
+  <xs:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ufmt.sig.entity" />
+  <xs:complexType name="ArrayOfUnidadeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UnidadeEntity" nillable="true" type="tns:UnidadeEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUnidadeEntity" nillable="true" type="tns:ArrayOfUnidadeEntity" />
+  <xs:complexType name="UnidadeEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Ativa" type="ser:char" />
+      <xs:element minOccurs="0" name="Campus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CampusUID" type="xs:long" />
+      <xs:element minOccurs="0" name="Hierarquia" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sigla" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoUnidade" type="xs:int" />
+      <xs:element minOccurs="0" name="UnidadeSuperiorUID" type="xs:long" />
+      <xs:element minOccurs="0" name="UnidadeUID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UnidadeEntity" nillable="true" type="tns:UnidadeEntity" />
+  <xs:complexType name="ArrayOfCampusEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CampusEntity" nillable="true" type="tns:CampusEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampusEntity" nillable="true" type="tns:ArrayOfCampusEntity" />
+  <xs:complexType name="CampusEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CampusUID" type="xs:int" />
+      <xs:element minOccurs="0" name="Nome" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampusEntity" nillable="true" type="tns:CampusEntity" />
+  <xs:complexType name="ArrayOfCampiEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CampiEntity" nillable="true" type="tns:CampiEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCampiEntity" nillable="true" type="tns:ArrayOfCampiEntity" />
+  <xs:complexType name="CampiEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="campusUID" type="xs:int" />
+      <xs:element minOccurs="0" name="codigoExterno" type="xs:int" />
+      <xs:element minOccurs="0" name="nome" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CampiEntity" nillable="true" type="tns:CampiEntity" />
+  <xs:complexType name="PessoaEntity">
+    <xs:complexContent mixed="false">
+      <xs:extension xmlns:q1="http://schemas.datacontract.org/2004/07/ufmt.sig.entity" base="q1:Pessoa">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Cargo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ImagemPerfil" nillable="true" type="xs:base64Binary" />
+          <xs:element minOccurs="0" name="LinkLattes" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NivelPadrao" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ServidorUID" type="xs:long" />
+          <xs:element minOccurs="0" name="Siape" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TipoPessoa" type="tns:Tipo" />
+          <xs:element minOccurs="0" name="Unidade" nillable="true" type="tns:UnidadeEntity" />
+          <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ufmt.services" minOccurs="0" name="situacaoDoServidor" type="q2:SituacaoDoServidor" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="PessoaEntity" nillable="true" type="tns:PessoaEntity" />
+  <xs:simpleType name="Tipo">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Servidor" />
+      <xs:enumeration value="AlunoGraduacao" />
+      <xs:enumeration value="AlunoPos" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Tipo" nillable="true" type="tns:Tipo" />
+  <xs:complexType name="ArrayOfEspacoFisicoEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="EspacoFisicoEntity" nillable="true" type="tns:EspacoFisicoEntity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEspacoFisicoEntity" nillable="true" type="tns:ArrayOfEspacoFisicoEntity" />
+  <xs:complexType name="EspacoFisicoEntity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Andar" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Bloco" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NomeUnidade" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="PredioNome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegiaoNome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sala" type="xs:int" />
+      <xs:element minOccurs="0" name="TipoEspacoFisico" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TipoSala" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UnidadeNome" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="unidadeUID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="EspacoFisicoEntity" nillable="true" type="tns:EspacoFisicoEntity" />
+</xs:schema>

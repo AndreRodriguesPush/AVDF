@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ufmt.services.entities" />
+  <xs:element name="GetUnidades">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomeParcial" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="campusUID" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="apenasAtivos" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="registroInicial" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="quantidadeRegistros" nillable="true" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidadesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetUnidadesResult" nillable="true" type="q1:ArrayOfUnidadeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unidadeUID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidadeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetUnidadeResult" nillable="true" type="q2:UnidadeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampi">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="nomeParcial" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampiResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetCampiResult" nillable="true" type="q3:ArrayOfCampusEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidadePorResponsavel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="pessoaUID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidadePorResponsavelResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetUnidadePorResponsavelResult" nillable="true" type="q4:UnidadeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidadesPorUnidadeSuperior">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unidadeUID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUnidadesPorUnidadeSuperiorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetUnidadesPorUnidadeSuperiorResult" nillable="true" type="q5:ArrayOfUnidadeEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNomeCampiPorUnidade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unidadeUID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNomeCampiPorUnidadeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNomeCampiPorUnidadeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampiGeral">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCampiGeralResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetCampiGeralResult" nillable="true" type="q6:ArrayOfCampiEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPessoaResponsavelPorUnidade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unidadeUID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetPessoaResponsavelPorUnidadeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetPessoaResponsavelPorUnidadeResult" nillable="true" type="q7:PessoaEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEspacoFisicoPorUnidade">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="unidadeUID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEspacoFisicoPorUnidadeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ufmt.services.entities" minOccurs="0" name="GetEspacoFisicoPorUnidadeResult" nillable="true" type="q8:ArrayOfEspacoFisicoEntity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

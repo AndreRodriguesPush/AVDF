@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/ufmt.sig.entity" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/ufmt.sig.entity" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="Pessoa">
+    <xs:sequence>
+      <xs:element name="cpf" nillable="true" type="xs:string" />
+      <xs:element name="ctps" nillable="true" type="xs:string" />
+      <xs:element name="ctpsSerie" nillable="true" type="xs:string" />
+      <xs:element name="ctpsUf" nillable="true" type="xs:string" />
+      <xs:element name="enderecoBairro" nillable="true" type="xs:string" />
+      <xs:element name="enderecoCep" nillable="true" type="xs:string" />
+      <xs:element name="enderecoComplemento" nillable="true" type="xs:string" />
+      <xs:element name="enderecoLogradouro" nillable="true" type="xs:string" />
+      <xs:element name="enderecoMunicipio" nillable="true" type="xs:string" />
+      <xs:element name="enderecoNumero" nillable="true" type="xs:string" />
+      <xs:element name="enderecoUf" nillable="true" type="xs:string" />
+      <xs:element name="mail" nillable="true" type="xs:string" />
+      <xs:element name="nascimentoData" type="xs:dateTime" />
+      <xs:element name="nome" nillable="true" type="xs:string" />
+      <xs:element name="nomeMae" nillable="true" type="xs:string" />
+      <xs:element name="nomePai" nillable="true" type="xs:string" />
+      <xs:element name="pessoaUID" type="xs:long" />
+      <xs:element name="pisPasep" nillable="true" type="xs:string" />
+      <xs:element name="rg" nillable="true" type="xs:string" />
+      <xs:element name="rgDataExpedicao" nillable="true" type="xs:dateTime" />
+      <xs:element name="rgOrgaoExpedidor" nillable="true" type="xs:string" />
+      <xs:element name="rgUf" nillable="true" type="xs:string" />
+      <xs:element name="sexo" type="ser:char" />
+      <xs:element name="telefoneComercial" nillable="true" type="xs:string" />
+      <xs:element name="telefonePrimario" nillable="true" type="xs:string" />
+      <xs:element name="telefoneSecundario" nillable="true" type="xs:string" />
+      <xs:element name="tipoTitulacao" nillable="true" type="tns:TipoTitulacao" />
+      <xs:element name="tituloEleitor" nillable="true" type="xs:string" />
+      <xs:element name="tituloEleitorDataEmissao" nillable="true" type="xs:dateTime" />
+      <xs:element name="tituloEleitorSecao" nillable="true" type="xs:string" />
+      <xs:element name="tituloEleitorUf" nillable="true" type="xs:string" />
+      <xs:element name="tituloEleitorZona" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Pessoa" nillable="true" type="tns:Pessoa" />
+  <xs:complexType name="TipoTitulacao">
+    <xs:sequence>
+      <xs:element name="descricao" nillable="true" type="xs:string" />
+      <xs:element name="tipoTitulacaoUID" type="xs:int" />
+      <xs:element name="titulacaoSiape" nillable="true" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TipoTitulacao" nillable="true" type="tns:TipoTitulacao" />
+</xs:schema>

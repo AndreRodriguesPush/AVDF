@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Localizacao" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ufmt.services.entities" />
+      <xsd:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ufmt.sig.entity" />
+      <xsd:import schemaLocation="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ufmt.services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ILocalizacao_GetUnidades_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidades" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidades_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidadesResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetCampi_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampi" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetCampi_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampiResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidadePorResponsavel_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidadePorResponsavel" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidadePorResponsavel_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidadePorResponsavelResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidadesPorUnidadeSuperior_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidadesPorUnidadeSuperior" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetUnidadesPorUnidadeSuperior_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUnidadesPorUnidadeSuperiorResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetNomeCampiPorUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNomeCampiPorUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetNomeCampiPorUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNomeCampiPorUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetCampiGeral_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampiGeral" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetCampiGeral_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCampiGeralResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetPessoaResponsavelPorUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPessoaResponsavelPorUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetPessoaResponsavelPorUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPessoaResponsavelPorUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetEspacoFisicoPorUnidade_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEspacoFisicoPorUnidade" />
+  </wsdl:message>
+  <wsdl:message name="ILocalizacao_GetEspacoFisicoPorUnidade_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEspacoFisicoPorUnidadeResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ILocalizacao">
+    <wsdl:operation name="GetUnidades">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidades" message="tns:ILocalizacao_GetUnidades_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidadesResponse" message="tns:ILocalizacao_GetUnidades_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidade" message="tns:ILocalizacao_GetUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidadeResponse" message="tns:ILocalizacao_GetUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampi">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetCampi" message="tns:ILocalizacao_GetCampi_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetCampiResponse" message="tns:ILocalizacao_GetCampi_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadePorResponsavel">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidadePorResponsavel" message="tns:ILocalizacao_GetUnidadePorResponsavel_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidadePorResponsavelResponse" message="tns:ILocalizacao_GetUnidadePorResponsavel_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadesPorUnidadeSuperior">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidadesPorUnidadeSuperior" message="tns:ILocalizacao_GetUnidadesPorUnidadeSuperior_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetUnidadesPorUnidadeSuperiorResponse" message="tns:ILocalizacao_GetUnidadesPorUnidadeSuperior_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNomeCampiPorUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetNomeCampiPorUnidade" message="tns:ILocalizacao_GetNomeCampiPorUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetNomeCampiPorUnidadeResponse" message="tns:ILocalizacao_GetNomeCampiPorUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCampiGeral">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetCampiGeral" message="tns:ILocalizacao_GetCampiGeral_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetCampiGeralResponse" message="tns:ILocalizacao_GetCampiGeral_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPessoaResponsavelPorUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetPessoaResponsavelPorUnidade" message="tns:ILocalizacao_GetPessoaResponsavelPorUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetPessoaResponsavelPorUnidadeResponse" message="tns:ILocalizacao_GetPessoaResponsavelPorUnidade_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEspacoFisicoPorUnidade">
+      <wsdl:input wsaw:Action="http://tempuri.org/ILocalizacao/GetEspacoFisicoPorUnidade" message="tns:ILocalizacao_GetEspacoFisicoPorUnidade_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/ILocalizacao/GetEspacoFisicoPorUnidadeResponse" message="tns:ILocalizacao_GetEspacoFisicoPorUnidade_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_ILocalizacao" type="tns:ILocalizacao">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUnidades">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetUnidades" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidade">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampi">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetCampi" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadePorResponsavel">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetUnidadePorResponsavel" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUnidadesPorUnidadeSuperior">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetUnidadesPorUnidadeSuperior" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNomeCampiPorUnidade">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetNomeCampiPorUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCampiGeral">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetCampiGeral" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPessoaResponsavelPorUnidade">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetPessoaResponsavelPorUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEspacoFisicoPorUnidade">
+      <soap:operation soapAction="http://tempuri.org/ILocalizacao/GetEspacoFisicoPorUnidade" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Localizacao">
+    <wsdl:port name="BasicHttpBinding_ILocalizacao" binding="tns:BasicHttpBinding_ILocalizacao">
+      <soap:address location="http://sistemas.ufmt.br/ufmt.services/Localizacao.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbbolsaspraeModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CadastroCredor">
+          <Key>
+            <PropertyRef Name="IdCadastroCredor" />
+          </Key>
+          <Property Name="IdCadastroCredor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Remessa" Type="varchar" MaxLength="4" />
+          <Property Name="CodigoUG" Type="varchar" MaxLength="6" />
+          <Property Name="CPFServidorResponsavel" Type="varchar" MaxLength="11" />
+          <Property Name="DataGeracao" Type="varchar" MaxLength="8" />
+          <Property Name="HoraGeracao" Type="varchar" MaxLength="6" />
+          <Property Name="CPFBolsista" Type="varchar" MaxLength="11" />
+          <Property Name="NomeBolsista" Type="varchar" MaxLength="45" />
+          <Property Name="EnderecoBolsista" Type="varchar" MaxLength="65" />
+          <Property Name="CodigoMunicipioSIAFI" Type="varchar" MaxLength="4" />
+          <Property Name="CodigoPaisSIAFI" Type="varchar" MaxLength="3" />
+          <Property Name="TelefoneBolsista" Type="varchar" MaxLength="45" />
+          <Property Name="FAXBolsista" Type="varchar" MaxLength="45" />
+          <Property Name="CEPUFMT" Type="varchar" MaxLength="8" />
+          <Property Name="CodigoBancoBolsista" Type="varchar" MaxLength="3" />
+          <Property Name="AgenciaBancoBolsista" Type="varchar" MaxLength="4" />
+          <Property Name="ContaCorrenteBolsista" Type="varchar" MaxLength="10" />
+          <Property Name="TipoContaSIAFI" Type="varchar" MaxLength="1" />
+          <Property Name="UGSupridoraSIAFI" Type="varchar" MaxLength="6" />
+          <Property Name="GestaoSupridoraSIAFI" Type="varchar" MaxLength="5" />
+        </EntityType>
+        <EntityType Name="CadastroCredorSiafi">
+          <Key>
+            <PropertyRef Name="IdCadastroCredor" />
+          </Key>
+          <Property Name="IdCadastroCredor" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeaderCadastroCredor" Type="varchar" MaxLength="2000" Nullable="false" />
+          <Property Name="DetalheCadastroCredor" Type="varchar" MaxLength="1000" Nullable="false" />
+          <Property Name="TraillerCadastroCredor" Type="varchar" MaxLength="1350" Nullable="false" />
+          <Property Name="MesEdital" Type="varchar" MaxLength="2" />
+          <Property Name="Edital" Type="varchar" MaxLength="10" />
+          <Property Name="DataCriacao" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="NumeroRemessa" Type="int" />
+        </EntityType>
+        <EntityType Name="ListaCredor">
+          <Key>
+            <PropertyRef Name="IdListaCredor" />
+          </Key>
+          <Property Name="IdListaCredor" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RGA" Type="varchar" MaxLength="50" />
+          <Property Name="CPF" Type="varchar" MaxLength="11" />
+          <Property Name="Banco" Type="varchar" MaxLength="5" />
+          <Property Name="Agencia" Type="varchar" MaxLength="10" />
+          <Property Name="Conta" Type="varchar" MaxLength="10" />
+          <Property Name="Valor" Type="varchar" MaxLength="50" />
+          <Property Name="NumeroLC" Type="varchar" MaxLength="6" />
+          <Property Name="DataCriacao" Type="datetime" />
+          <Property Name="NumeroRemessaLC" Type="int" />
+        </EntityType>
+        <EntityType Name="ListaCredorSiafi">
+          <Key>
+            <PropertyRef Name="IdListaCredor" />
+          </Key>
+          <Property Name="IdListaCredor" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HeaderListaCredor" Type="varchar" MaxLength="250" />
+          <Property Name="DetalheListaCredor" Type="varchar" MaxLength="250" />
+          <Property Name="TraillerListaCredor" Type="varchar" MaxLength="250" />
+          <Property Name="MesAnoReferencia" Type="datetime" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="NumeroLista" Type="varchar" MaxLength="6" />
+        </EntityType>
+        <EntityContainer Name="dbbolsaspraeModelStoreContainer">
+          <EntitySet Name="CadastroCredor" EntityType="Self.CadastroCredor" Schema="bolsa" store:Type="Tables" />
+          <EntitySet Name="CadastroCredorSiafi" EntityType="Self.CadastroCredorSiafi" Schema="bolsa" store:Type="Tables" />
+          <EntitySet Name="ListaCredor" EntityType="Self.ListaCredor" Schema="bolsa" store:Type="Tables" />
+          <EntitySet Name="ListaCredorSiafi" EntityType="Self.ListaCredorSiafi" Schema="bolsa" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbbolsaspraeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CadastroCredor">
+          <Key>
+            <PropertyRef Name="IdCadastroCredor" />
+          </Key>
+          <Property Name="IdCadastroCredor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Remessa" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoUG" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="CPFServidorResponsavel" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="DataGeracao" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="HoraGeracao" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="CPFBolsista" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="NomeBolsista" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="EnderecoBolsista" Type="String" MaxLength="65" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoMunicipioSIAFI" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoPaisSIAFI" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="TelefoneBolsista" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="FAXBolsista" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="CEPUFMT" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoBancoBolsista" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="AgenciaBancoBolsista" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ContaCorrenteBolsista" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TipoContaSIAFI" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UGSupridoraSIAFI" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="GestaoSupridoraSIAFI" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="CadastroCredorSiafi">
+          <Key>
+            <PropertyRef Name="IdCadastroCredor" />
+          </Key>
+          <Property Name="IdCadastroCredor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeaderCadastroCredor" Type="String" MaxLength="2000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DetalheCadastroCredor" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TraillerCadastroCredor" Type="String" MaxLength="1350" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MesEdital" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="Edital" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <Property Name="NumeroRemessa" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ListaCredor">
+          <Key>
+            <PropertyRef Name="IdListaCredor" />
+          </Key>
+          <Property Name="IdListaCredor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RGA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CPF" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="Banco" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="Agencia" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Conta" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Valor" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NumeroLC" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="DataCriacao" Type="DateTime" Precision="3" />
+          <Property Name="NumeroRemessaLC" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ListaCredorSiafi">
+          <Key>
+            <PropertyRef Name="IdListaCredor" />
+          </Key>
+          <Property Name="IdListaCredor" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HeaderListaCredor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DetalheListaCredor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="TraillerListaCredor" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="MesAnoReferencia" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+          <Property Name="NumeroLista" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="dbbolsaspraeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CadastroCredor" EntityType="Self.CadastroCredor" />
+          <EntitySet Name="CadastroCredorSiafi" EntityType="Self.CadastroCredorSiafi" />
+          <EntitySet Name="ListaCredor" EntityType="Self.ListaCredor" />
+          <EntitySet Name="ListaCredorSiafi" EntityType="Self.ListaCredorSiafi" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbbolsaspraeModelStoreContainer" CdmEntityContainer="dbbolsaspraeEntities">
+          <EntitySetMapping Name="CadastroCredor">
+            <EntityTypeMapping TypeName="dbbolsaspraeModel.CadastroCredor">
+              <MappingFragment StoreEntitySet="CadastroCredor">
+                <ScalarProperty Name="IdCadastroCredor" ColumnName="IdCadastroCredor" />
+                <ScalarProperty Name="Remessa" ColumnName="Remessa" />
+                <ScalarProperty Name="CodigoUG" ColumnName="CodigoUG" />
+                <ScalarProperty Name="CPFServidorResponsavel" ColumnName="CPFServidorResponsavel" />
+                <ScalarProperty Name="DataGeracao" ColumnName="DataGeracao" />
+                <ScalarProperty Name="HoraGeracao" ColumnName="HoraGeracao" />
+                <ScalarProperty Name="CPFBolsista" ColumnName="CPFBolsista" />
+                <ScalarProperty Name="NomeBolsista" ColumnName="NomeBolsista" />
+                <ScalarProperty Name="EnderecoBolsista" ColumnName="EnderecoBolsista" />
+                <ScalarProperty Name="CodigoMunicipioSIAFI" ColumnName="CodigoMunicipioSIAFI" />
+                <ScalarProperty Name="CodigoPaisSIAFI" ColumnName="CodigoPaisSIAFI" />
+                <ScalarProperty Name="TelefoneBolsista" ColumnName="TelefoneBolsista" />
+                <ScalarProperty Name="FAXBolsista" ColumnName="FAXBolsista" />
+                <ScalarProperty Name="CEPUFMT" ColumnName="CEPUFMT" />
+                <ScalarProperty Name="CodigoBancoBolsista" ColumnName="CodigoBancoBolsista" />
+                <ScalarProperty Name="AgenciaBancoBolsista" ColumnName="AgenciaBancoBolsista" />
+                <ScalarProperty Name="ContaCorrenteBolsista" ColumnName="ContaCorrenteBolsista" />
+                <ScalarProperty Name="TipoContaSIAFI" ColumnName="TipoContaSIAFI" />
+                <ScalarProperty Name="UGSupridoraSIAFI" ColumnName="UGSupridoraSIAFI" />
+                <ScalarProperty Name="GestaoSupridoraSIAFI" ColumnName="GestaoSupridoraSIAFI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CadastroCredorSiafi">
+            <EntityTypeMapping TypeName="dbbolsaspraeModel.CadastroCredorSiafi">
+              <MappingFragment StoreEntitySet="CadastroCredorSiafi">
+                <ScalarProperty Name="IdCadastroCredor" ColumnName="IdCadastroCredor" />
+                <ScalarProperty Name="HeaderCadastroCredor" ColumnName="HeaderCadastroCredor" />
+                <ScalarProperty Name="DetalheCadastroCredor" ColumnName="DetalheCadastroCredor" />
+                <ScalarProperty Name="TraillerCadastroCredor" ColumnName="TraillerCadastroCredor" />
+                <ScalarProperty Name="MesEdital" ColumnName="MesEdital" />
+                <ScalarProperty Name="Edital" ColumnName="Edital" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="NumeroRemessa" ColumnName="NumeroRemessa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListaCredor">
+            <EntityTypeMapping TypeName="dbbolsaspraeModel.ListaCredor">
+              <MappingFragment StoreEntitySet="ListaCredor">
+                <ScalarProperty Name="IdListaCredor" ColumnName="IdListaCredor" />
+                <ScalarProperty Name="RGA" ColumnName="RGA" />
+                <ScalarProperty Name="CPF" ColumnName="CPF" />
+                <ScalarProperty Name="Banco" ColumnName="Banco" />
+                <ScalarProperty Name="Agencia" ColumnName="Agencia" />
+                <ScalarProperty Name="Conta" ColumnName="Conta" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="NumeroLC" ColumnName="NumeroLC" />
+                <ScalarProperty Name="DataCriacao" ColumnName="DataCriacao" />
+                <ScalarProperty Name="NumeroRemessaLC" ColumnName="NumeroRemessaLC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListaCredorSiafi">
+            <EntityTypeMapping TypeName="dbbolsaspraeModel.ListaCredorSiafi">
+              <MappingFragment StoreEntitySet="ListaCredorSiafi">
+                <ScalarProperty Name="IdListaCredor" ColumnName="IdListaCredor" />
+                <ScalarProperty Name="HeaderListaCredor" ColumnName="HeaderListaCredor" />
+                <ScalarProperty Name="DetalheListaCredor" ColumnName="DetalheListaCredor" />
+                <ScalarProperty Name="TraillerListaCredor" ColumnName="TraillerListaCredor" />
+                <ScalarProperty Name="MesAnoReferencia" ColumnName="MesAnoReferencia" />
+                <ScalarProperty Name="NumeroLista" ColumnName="NumeroLista" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

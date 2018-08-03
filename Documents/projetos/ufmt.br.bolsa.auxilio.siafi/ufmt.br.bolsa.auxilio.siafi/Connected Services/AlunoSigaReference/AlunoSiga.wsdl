@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="AlunoSiga" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ufmt.services.entities" />
+      <xsd:import schemaLocation="http://200.129.241.67/ufmt.services/AlunoSiga.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/ufmt.services" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IAlunoSiga_GetInfoAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoAluno" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetInfoAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetInfoAlunoInativo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoAlunoInativo" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetInfoAlunoInativo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoAlunoInativoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunos_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunos" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunos_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorCpf_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorCpf" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorCpf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorCpfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosInativosPorCpf_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosInativosPorCpf" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosInativosPorCpf_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosInativosPorCpfResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorCampus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorCampus" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorCampus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorCampusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosGraduacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosGraduacao" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosGraduacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosGraduacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosGraduacaoPorCampus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosGraduacaoPorCampus" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosGraduacaoPorCampus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosGraduacaoPorCampusResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPaginado_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPaginado" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPaginado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPaginadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorCampusPaginado_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorCampusPaginado" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorCampusPaginado_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorCampusPaginadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetCoeficiente_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoeficiente" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetCoeficiente_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoeficienteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorNome_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorNome" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosPorNome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosPorNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosInativosPorNome_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosInativosPorNome" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetAlunosInativosPorNome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAlunosInativosPorNomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_ConsultaGenerica_InputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaGenerica" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_ConsultaGenerica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ConsultaGenericaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GravaFaltasEstudanteGraduacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:GravaFaltasEstudanteGraduacao" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GravaFaltasEstudanteGraduacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GravaFaltasEstudanteGraduacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GravaFaltasEstudantesGraduacao_InputMessage">
+    <wsdl:part name="parameters" element="tns:GravaFaltasEstudantesGraduacao" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GravaFaltasEstudantesGraduacao_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GravaFaltasEstudantesGraduacaoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_DesligaAlunoSiga_InputMessage">
+    <wsdl:part name="parameters" element="tns:DesligaAlunoSiga" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_DesligaAlunoSiga_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DesligaAlunoSigaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_IncluiDisciplinaHistorico_InputMessage">
+    <wsdl:part name="parameters" element="tns:IncluiDisciplinaHistorico" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_IncluiDisciplinaHistorico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IncluiDisciplinaHistoricoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_RemoverDisciplinaHistorico_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoverDisciplinaHistorico" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_RemoverDisciplinaHistorico_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoverDisciplinaHistoricoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaPendenciasBiblioteca_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaPendenciasBiblioteca" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaPendenciasBiblioteca_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaPendenciasBibliotecaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_AlterarSenhaAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarSenhaAluno" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_AlterarSenhaAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarSenhaAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_AlterarDadosCadastrais_InputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarDadosCadastrais" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_AlterarDadosCadastrais_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AlterarDadosCadastraisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_ReenvioSenhaAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:ReenvioSenhaAluno" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_ReenvioSenhaAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ReenvioSenhaAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificarCargaHorariaCursada_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarCargaHorariaCursada" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificarCargaHorariaCursada_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificarCargaHorariaCursadaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaBolsaAluno_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaBolsaAluno" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaBolsaAluno_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaBolsaAlunoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaReprovacoesSemestresAnteriores_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaReprovacoesSemestresAnteriores" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaReprovacoesSemestresAnteriores_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaReprovacoesSemestresAnterioresResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetCoeficientePorMediaAritmetica_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoeficientePorMediaAritmetica" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetCoeficientePorMediaAritmetica_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCoeficientePorMediaAritmeticaResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaAprovacoesSemestresIniciais_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaAprovacoesSemestresIniciais" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_VerificaAprovacoesSemestresIniciais_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerificaAprovacoesSemestresIniciaisResponse" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetInfoAlunoAndifes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoAlunoAndifes" />
+  </wsdl:message>
+  <wsdl:message name="IAlunoSiga_GetInfoAlunoAndifes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInfoAlunoAndifesResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IAlunoSiga">
+    <wsdl:operation name="GetInfoAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetInfoAluno" message="tns:IAlunoSiga_GetInfoAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetInfoAlunoResponse" message="tns:IAlunoSiga_GetInfoAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoAlunoInativo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetInfoAlunoInativo" message="tns:IAlunoSiga_GetInfoAlunoInativo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetInfoAlunoInativoResponse" message="tns:IAlunoSiga_GetInfoAlunoInativo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunos">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunos" message="tns:IAlunoSiga_GetAlunos_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosResponse" message="tns:IAlunoSiga_GetAlunos_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorCpf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorCpf" message="tns:IAlunoSiga_GetAlunosPorCpf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorCpfResponse" message="tns:IAlunoSiga_GetAlunosPorCpf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosInativosPorCpf">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosInativosPorCpf" message="tns:IAlunoSiga_GetAlunosInativosPorCpf_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosInativosPorCpfResponse" message="tns:IAlunoSiga_GetAlunosInativosPorCpf_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorCampus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorCampus" message="tns:IAlunoSiga_GetAlunosPorCampus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorCampusResponse" message="tns:IAlunoSiga_GetAlunosPorCampus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosGraduacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosGraduacao" message="tns:IAlunoSiga_GetAlunosGraduacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosGraduacaoResponse" message="tns:IAlunoSiga_GetAlunosGraduacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosGraduacaoPorCampus">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosGraduacaoPorCampus" message="tns:IAlunoSiga_GetAlunosGraduacaoPorCampus_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosGraduacaoPorCampusResponse" message="tns:IAlunoSiga_GetAlunosGraduacaoPorCampus_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPaginado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPaginado" message="tns:IAlunoSiga_GetAlunosPaginado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPaginadoResponse" message="tns:IAlunoSiga_GetAlunosPaginado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorCampusPaginado">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorCampusPaginado" message="tns:IAlunoSiga_GetAlunosPorCampusPaginado_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorCampusPaginadoResponse" message="tns:IAlunoSiga_GetAlunosPorCampusPaginado_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoeficiente">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetCoeficiente" message="tns:IAlunoSiga_GetCoeficiente_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetCoeficienteResponse" message="tns:IAlunoSiga_GetCoeficiente_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorNome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorNome" message="tns:IAlunoSiga_GetAlunosPorNome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosPorNomeResponse" message="tns:IAlunoSiga_GetAlunosPorNome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosInativosPorNome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosInativosPorNome" message="tns:IAlunoSiga_GetAlunosInativosPorNome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetAlunosInativosPorNomeResponse" message="tns:IAlunoSiga_GetAlunosInativosPorNome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaGenerica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/ConsultaGenerica" message="tns:IAlunoSiga_ConsultaGenerica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/ConsultaGenericaResponse" message="tns:IAlunoSiga_ConsultaGenerica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GravaFaltasEstudanteGraduacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GravaFaltasEstudanteGraduacao" message="tns:IAlunoSiga_GravaFaltasEstudanteGraduacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GravaFaltasEstudanteGraduacaoResponse" message="tns:IAlunoSiga_GravaFaltasEstudanteGraduacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GravaFaltasEstudantesGraduacao">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GravaFaltasEstudantesGraduacao" message="tns:IAlunoSiga_GravaFaltasEstudantesGraduacao_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GravaFaltasEstudantesGraduacaoResponse" message="tns:IAlunoSiga_GravaFaltasEstudantesGraduacao_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DesligaAlunoSiga">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/DesligaAlunoSiga" message="tns:IAlunoSiga_DesligaAlunoSiga_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/DesligaAlunoSigaResponse" message="tns:IAlunoSiga_DesligaAlunoSiga_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IncluiDisciplinaHistorico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/IncluiDisciplinaHistorico" message="tns:IAlunoSiga_IncluiDisciplinaHistorico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/IncluiDisciplinaHistoricoResponse" message="tns:IAlunoSiga_IncluiDisciplinaHistorico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoverDisciplinaHistorico">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/RemoverDisciplinaHistorico" message="tns:IAlunoSiga_RemoverDisciplinaHistorico_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/RemoverDisciplinaHistoricoResponse" message="tns:IAlunoSiga_RemoverDisciplinaHistorico_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaPendenciasBiblioteca">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaPendenciasBiblioteca" message="tns:IAlunoSiga_VerificaPendenciasBiblioteca_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaPendenciasBibliotecaResponse" message="tns:IAlunoSiga_VerificaPendenciasBiblioteca_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenhaAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/AlterarSenhaAluno" message="tns:IAlunoSiga_AlterarSenhaAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/AlterarSenhaAlunoResponse" message="tns:IAlunoSiga_AlterarSenhaAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AlterarDadosCadastrais">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/AlterarDadosCadastrais" message="tns:IAlunoSiga_AlterarDadosCadastrais_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/AlterarDadosCadastraisResponse" message="tns:IAlunoSiga_AlterarDadosCadastrais_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ReenvioSenhaAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/ReenvioSenhaAluno" message="tns:IAlunoSiga_ReenvioSenhaAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/ReenvioSenhaAlunoResponse" message="tns:IAlunoSiga_ReenvioSenhaAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCargaHorariaCursada">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/VerificarCargaHorariaCursada" message="tns:IAlunoSiga_VerificarCargaHorariaCursada_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/VerificarCargaHorariaCursadaResponse" message="tns:IAlunoSiga_VerificarCargaHorariaCursada_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaBolsaAluno">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaBolsaAluno" message="tns:IAlunoSiga_VerificaBolsaAluno_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaBolsaAlunoResponse" message="tns:IAlunoSiga_VerificaBolsaAluno_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaReprovacoesSemestresAnteriores">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaReprovacoesSemestresAnteriores" message="tns:IAlunoSiga_VerificaReprovacoesSemestresAnteriores_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaReprovacoesSemestresAnterioresResponse" message="tns:IAlunoSiga_VerificaReprovacoesSemestresAnteriores_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCoeficientePorMediaAritmetica">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetCoeficientePorMediaAritmetica" message="tns:IAlunoSiga_GetCoeficientePorMediaAritmetica_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetCoeficientePorMediaAritmeticaResponse" message="tns:IAlunoSiga_GetCoeficientePorMediaAritmetica_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerificaAprovacoesSemestresIniciais">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaAprovacoesSemestresIniciais" message="tns:IAlunoSiga_VerificaAprovacoesSemestresIniciais_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/VerificaAprovacoesSemestresIniciaisResponse" message="tns:IAlunoSiga_VerificaAprovacoesSemestresIniciais_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoAlunoAndifes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IAlunoSiga/GetInfoAlunoAndifes" message="tns:IAlunoSiga_GetInfoAlunoAndifes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IAlunoSiga/GetInfoAlunoAndifesResponse" message="tns:IAlunoSiga_GetInfoAlunoAndifes_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IAlunoSiga" type="tns:IAlunoSiga">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetInfoAluno">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetInfoAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoAlunoInativo">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetInfoAlunoInativo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunos">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorCpf">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosPorCpf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosInativosPorCpf">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosInativosPorCpf" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorCampus">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosPorCampus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosGraduacao">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosGraduacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosGraduacaoPorCampus">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosGraduacaoPorCampus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPaginado">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosPaginado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorCampusPaginado">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosPorCampusPaginado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoeficiente">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetCoeficiente" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosPorNome">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosPorNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAlunosInativosPorNome">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetAlunosInativosPorNome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaGenerica">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/ConsultaGenerica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravaFaltasEstudanteGraduacao">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GravaFaltasEstudanteGraduacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GravaFaltasEstudantesGraduacao">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GravaFaltasEstudantesGraduacao" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DesligaAlunoSiga">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/DesligaAlunoSiga" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IncluiDisciplinaHistorico">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/IncluiDisciplinaHistorico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoverDisciplinaHistorico">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/RemoverDisciplinaHistorico" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaPendenciasBiblioteca">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/VerificaPendenciasBiblioteca" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarSenhaAluno">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/AlterarSenhaAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AlterarDadosCadastrais">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/AlterarDadosCadastrais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ReenvioSenhaAluno">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/ReenvioSenhaAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificarCargaHorariaCursada">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/VerificarCargaHorariaCursada" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaBolsaAluno">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/VerificaBolsaAluno" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaReprovacoesSemestresAnteriores">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/VerificaReprovacoesSemestresAnteriores" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoeficientePorMediaAritmetica">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetCoeficientePorMediaAritmetica" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerificaAprovacoesSemestresIniciais">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/VerificaAprovacoesSemestresIniciais" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInfoAlunoAndifes">
+      <soap:operation soapAction="http://tempuri.org/IAlunoSiga/GetInfoAlunoAndifes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AlunoSiga">
+    <wsdl:port name="BasicHttpBinding_IAlunoSiga" binding="tns:BasicHttpBinding_IAlunoSiga">
+      <soap:address location="http://200.129.241.67/ufmt.services/AlunoSiga.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
